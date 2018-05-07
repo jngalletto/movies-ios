@@ -85,20 +85,6 @@ open class BaseManager<T>: ServiceManager where T: TargetType {
       .asObservable()
   }
 
-  /**
-   Makes a request to the provided target and tries to decode its response as an array
-   using the provided keyPath and return type and returning it as an Observable.
-   - Parameters:
-   - target: The TargetType used to make the request.
-   - keyPath: The keypath used to decode from JSON (if passed nil, it will try to decode from the root).
-   */
-  open func requestCollection<T>(_ target: ProviderType, at keyPath: String? = nil) -> Observable<[T]> where T: Codable {
-    return provider.rx.request(target)
-      .filterSuccessfulStatusCodes()
-      .map([T].self, atKeyPath: keyPath, using: jsonDecoder)
-      .asObservable()
-  }
-
   /// Helper to use as middleware to pretty print the JSON response.
   private func JSONResponseDataFormatter(_ data: Data) -> Data {
     do {
