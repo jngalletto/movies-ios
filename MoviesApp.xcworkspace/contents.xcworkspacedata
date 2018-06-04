@@ -2,7 +2,7 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:/Users/moove-it/Documents/code/ucu/Swift-Project-Template/MoviesApp.xcodeproj">
+      location = "group:MoviesApp.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">

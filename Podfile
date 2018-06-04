@@ -1,6 +1,6 @@
 platform :ios, '9.0'
 
-target 'SwiftBaseProject' do
+target 'MoviesApp' do
   use_frameworks!
 
   # Core Dependencies
@@ -20,11 +20,11 @@ target 'SwiftBaseProject' do
   # Remote Image management
   # pod 'Kingfisher', '~> 4.6.3'
 
-  target 'SwiftBaseProjectTests' do
+  target 'MoviesAppTests' do
     inherit! :search_paths
   end
 
-  target 'SwiftBaseProjectUITests' do
+  target 'MoviesAppUITests' do
     inherit! :search_paths
   end
 
