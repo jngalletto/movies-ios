@@ -13,9 +13,8 @@ import UIKit
 
 class DashaboardViewController: UIViewController {
 
-  @IBOutlet weak var logoutBtn: UIButton!
-  @IBOutlet weak var nameLabel: UILabel!
-
+  @IBOutlet weak var logoutButton: UIButton!
+    
   var viewModel: DashboardViewModel!
   private var disposeBag = DisposeBag()
 
@@ -28,11 +27,10 @@ class DashaboardViewController: UIViewController {
     viewModel.user.asObservable().subscribe(
       onNext: { [unowned self] user in
         guard let user = user else { return }
-        self.nameLabel.text = user.email
       }
     ).disposed(by: disposeBag)
 
-    logoutBtn.addTarget(self, action: #selector(logout), for: .touchUpInside)
+    logoutButton.addTarget(self, action: #selector(logout), for: .touchUpInside)
   }
 
   @objc

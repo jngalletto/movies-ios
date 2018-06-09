@@ -17,9 +17,22 @@
                     <view key="view" contentMode="scaleToFill" id="8UL-mW-JMw">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mKF-i0-kro">
+                                <rect key="frame" x="164" y="328.5" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" red="0.99215686270000003" green="0.36078431370000003" blue="0.070588235289999995" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="mKF-i0-kro" firstAttribute="centerX" secondItem="j03-wg-EAQ" secondAttribute="centerX" id="2dM-7h-IOm"/>
+                            <constraint firstItem="mKF-i0-kro" firstAttribute="centerY" secondItem="j03-wg-EAQ" secondAttribute="centerY" id="Nxn-SQ-8IC"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="j03-wg-EAQ"/>
                     </view>
+                    <connections>
+                        <outlet property="logoutButton" destination="mKF-i0-kro" id="xaJ-9s-zpp"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HDo-Hj-MOx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
