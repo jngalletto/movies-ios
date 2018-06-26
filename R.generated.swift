@@ -49,12 +49,42 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.segue` struct is generated, and contains static references to 0 view controllers.
+  /// This `R.segue` struct is generated, and contains static references to 2 view controllers.
   struct segue {
+    /// This struct is generated for `DashaboardViewController`, and contains static references to 1 segues.
+    struct dashaboardViewController {
+      /// Segue identifier `movieDetailSegue`.
+      static let movieDetailSegue: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, DashaboardViewController, MovieDetailViewController> = Rswift.StoryboardSegueIdentifier(identifier: "movieDetailSegue")
+      
+      /// Optionally returns a typed version of segue `movieDetailSegue`.
+      /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
+      /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
+      static func movieDetailSegue(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, DashaboardViewController, MovieDetailViewController>? {
+        return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.dashaboardViewController.movieDetailSegue, segue: segue)
+      }
+      
+      fileprivate init() {}
+    }
+    
+    /// This struct is generated for `LoginViewController`, and contains static references to 1 segues.
+    struct loginViewController {
+      /// Segue identifier `homeSegue`.
+      static let homeSegue: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, LoginViewController, UIKit.UITabBarController> = Rswift.StoryboardSegueIdentifier(identifier: "homeSegue")
+      
+      /// Optionally returns a typed version of segue `homeSegue`.
+      /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
+      /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
+      static func homeSegue(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, LoginViewController, UIKit.UITabBarController>? {
+        return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.loginViewController.homeSegue, segue: segue)
+      }
+      
+      fileprivate init() {}
+    }
+    
     fileprivate init() {}
   }
   
-  /// This `R.storyboard` struct is generated, and contains static references to 6 storyboards.
+  /// This `R.storyboard` struct is generated, and contains static references to 7 storyboards.
   struct storyboard {
     /// Storyboard `Dashboard`.
     static let dashboard = _R.storyboard.dashboard()
@@ -68,6 +98,8 @@ struct R: Rswift.Validatable {
     static let movieDetail = _R.storyboard.movieDetail()
     /// Storyboard `Profile`.
     static let profile = _R.storyboard.profile()
+    /// Storyboard `Settings`.
+    static let settings = _R.storyboard.settings()
     
     /// `UIStoryboard(name: "Dashboard", bundle: ...)`
     static func dashboard(_: Void = ()) -> UIKit.UIStoryboard {
@@ -97,6 +129,11 @@ struct R: Rswift.Validatable {
     /// `UIStoryboard(name: "Profile", bundle: ...)`
     static func profile(_: Void = ()) -> UIKit.UIStoryboard {
       return UIKit.UIStoryboard(resource: R.storyboard.profile)
+    }
+    
+    /// `UIStoryboard(name: "Settings", bundle: ...)`
+    static func settings(_: Void = ()) -> UIKit.UIStoryboard {
+      return UIKit.UIStoryboard(resource: R.storyboard.settings)
     }
     
     fileprivate init() {}
@@ -135,7 +172,9 @@ struct _R {
       fileprivate init() {}
     }
     
-    struct home: Rswift.StoryboardResourceType {
+    struct home: Rswift.StoryboardResourceWithInitialControllerType {
+      typealias InitialController = UIKit.UITabBarController
+      
       let bundle = R.hostingBundle
       let name = "Home"
       
@@ -152,7 +191,7 @@ struct _R {
     }
     
     struct main: Rswift.StoryboardResourceWithInitialControllerType {
-      typealias InitialController = LoginViewController
+      typealias InitialController = UIKit.UINavigationController
       
       let bundle = R.hostingBundle
       let name = "Main"
@@ -160,16 +199,29 @@ struct _R {
       fileprivate init() {}
     }
     
-    struct movieDetail: Rswift.StoryboardResourceType {
+    struct movieDetail: Rswift.StoryboardResourceWithInitialControllerType {
+      typealias InitialController = MovieDetailViewController
+      
       let bundle = R.hostingBundle
       let name = "MovieDetail"
       
       fileprivate init() {}
     }
     
-    struct profile: Rswift.StoryboardResourceType {
+    struct profile: Rswift.StoryboardResourceWithInitialControllerType {
+      typealias InitialController = ProfileViewController
+      
       let bundle = R.hostingBundle
       let name = "Profile"
+      
+      fileprivate init() {}
+    }
+    
+    struct settings: Rswift.StoryboardResourceWithInitialControllerType {
+      typealias InitialController = SettingsViewController
+      
+      let bundle = R.hostingBundle
+      let name = "Settings"
       
       fileprivate init() {}
     }

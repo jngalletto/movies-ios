@@ -41,7 +41,8 @@ class DashaboardViewController: UIViewController, UITableViewDelegate, UITableVi
         onNext: { movies in
             self.movies = movies
             self.discoverMoviesTableView.reloadData()
-    })
+        }
+    )
     
 //    indicator.startAnimating()
 //    indicator.backgroundColor = Constants.Colors.accentColor
@@ -70,5 +71,16 @@ class DashaboardViewController: UIViewController, UITableViewDelegate, UITableVi
             
         }
         return cell
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        let indexPath = tableView.indexPathForSelectedRow
+//        let selectedRow = indexPath!.row
+//        
+//        if segue.identifier == "matchSegue" {
+//            let selectedMatchId = matches[selectedRow].identifier
+//            let matchController = segue.destination as! MatchViewController
+//            matchController.matchId = selectedMatchId
+//        }
     }
 }

@@ -15,11 +15,11 @@
             <objects>
                 <viewController title="GO MOVIES" id="lvZ-03-GFU" customClass="DashaboardViewController" customModule="MoviesApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8UL-mW-JMw">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="QNd-Nu-yu0">
-                                <rect key="frame" x="-0.5" y="0.0" width="375" height="603"/>
+                                <rect key="frame" x="-0.5" y="10" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="default" indentationWidth="10" reuseIdentifier="movieCell" rowHeight="187" id="xSx-4Z-zG4" customClass="DiscoverMovieViewCell" customModule="MoviesApp" customModuleProvider="target">
@@ -78,6 +78,7 @@
                                             <outlet property="movieOverview" destination="U0b-XE-5a8" id="SZ4-ve-63h"/>
                                             <outlet property="moviePoster" destination="SWL-zX-ByC" id="zGw-Th-5oE"/>
                                             <outlet property="movieTitle" destination="U0b-XE-5a8" id="uVc-EH-ojW"/>
+                                            <segue destination="dTJ-fo-fx7" kind="show" identifier="movieDetailSegue" id="K5G-z8-Lye"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -91,7 +92,6 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="j03-wg-EAQ"/>
                     </view>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <connections>
                         <outlet property="discoverMoviesTableView" destination="QNd-Nu-yu0" id="C3p-fM-ufM"/>
                     </connections>
@@ -99,6 +99,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HDo-Hj-MOx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="36" y="128.18590704647679"/>
+        </scene>
+        <!--MovieDetail-->
+        <scene sceneID="SJ6-mb-Eq7">
+            <objects>
+                <viewControllerPlaceholder storyboardName="MovieDetail" id="dTJ-fo-fx7" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Av3-66-AFa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="703" y="77"/>
         </scene>
     </scenes>
 </document>
