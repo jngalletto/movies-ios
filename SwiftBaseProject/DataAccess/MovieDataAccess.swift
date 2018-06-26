@@ -11,13 +11,13 @@ import RxSwift
 
 class MovieDataAccess: BaseDataAccess {
     
-    var movies: Movies? = Movies()
+    var movies: [Movie] = [Movie]()
     
-    func fetchMovies() -> Observable<Movies?> {
+    func fetchMovies() -> Observable<[Movie]?> {
         return Observable.just(movies)
     }
     
-    func save(moviesList: Movies) {
+    func save(moviesList: [Movie]) {
         movies = moviesList
     }
 }

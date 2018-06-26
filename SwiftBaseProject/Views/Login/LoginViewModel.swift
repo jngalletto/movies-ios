@@ -16,6 +16,7 @@ class LoginViewModel {
   var userName = BehaviorRelay<String?>(value: nil)
   var password = BehaviorRelay<String?>(value: nil)
   var canSubmit = BehaviorRelay<Bool>(value: false)
+  var loginSuccess = BehaviorRelay<Bool>(value: false)
   var error = BehaviorRelay<String?>(value: nil)
 
   init(with username: String?) {
@@ -33,15 +34,14 @@ class LoginViewModel {
 
   func login() {
     guard let username = userName.value, let password = password.value else { return }
-    UserController.sharedInstance.login(with: username, password: password)
-      .subscribe(
-        onNext: { _ in
-          AppDelegate.saveUserNameOnDefaults(username: username)
-          AppRouter.sharedInstance.navigate(to: HomeRoute.dashboard, with: .reset)
-        },
-        onError: { [weak self] error in
-          self?.error.accept(error.localizedDescription)
+    let userRequest: Observable<User> = UserServiceManager.shared.request(UserService.login(username: username, password: password))
+    userRequest.subscribe(
+        onNext: { user in
+            AppDelegate.saveUserNameOnDefaults(username: username)
+            self.loginSuccess.accept(true)
+        }, onError: { error in
+            print(error.localizedDescription)
         }
-      ).disposed(by: disposeBag)
+    ).disposed(by: disposeBag)
   }
 }

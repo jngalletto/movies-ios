@@ -14,7 +14,6 @@
 		394F47F520CC5B1400053A48 /* MovieDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394F47F420CC5B1400053A48 /* MovieDetailViewController.swift */; };
 		394F47F720CC5B8D00053A48 /* MovieDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 394F47F620CC5B8D00053A48 /* MovieDetail.storyboard */; };
 		394F47F920CC5BDB00053A48 /* MovieDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394F47F820CC5BDB00053A48 /* MovieDetailViewModel.swift */; };
-		394F47FB20CC5C8A00053A48 /* MovieController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394F47FA20CC5C8A00053A48 /* MovieController.swift */; };
 		394F47FD20CC5DF300053A48 /* MovieService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394F47FC20CC5DF300053A48 /* MovieService.swift */; };
 		394F47FF20CC62DF00053A48 /* MovieDataAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394F47FE20CC62DF00053A48 /* MovieDataAccess.swift */; };
 		394F480120CC648600053A48 /* Movies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394F480020CC648600053A48 /* Movies.swift */; };
@@ -27,9 +26,8 @@
 		71FA0360D452DA43E9B266F5 /* Pods_MoviesApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DF03B1AD904EE2660753C4B /* Pods_MoviesApp.framework */; };
 		97139D09207654FB007B1C65 /* NibInstantiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97139D08207654FB007B1C65 /* NibInstantiable.swift */; };
 		97139D0B20765A0D007B1C65 /* UIView+ConstraintsHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97139D0A20765A0D007B1C65 /* UIView+ConstraintsHelpers.swift */; };
-		97B83C5C2056E73C0096B10A /* TargetType+BaseProject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97B83C5B2056E73C0096B10A /* TargetType+BaseProject.swift */; };
+		97B83C5C2056E73C0096B10A /* TargetType+MoviesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97B83C5B2056E73C0096B10A /* TargetType+MoviesApp.swift */; };
 		97B83C602056EA8D0096B10A /* BaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97B83C5F2056EA8D0096B10A /* BaseManager.swift */; };
-		97B83C632056EC3B0096B10A /* AppRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97B83C622056EC3B0096B10A /* AppRouter.swift */; };
 		97B83C652056F9F60096B10A /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97B83C642056F9F60096B10A /* LoginViewModel.swift */; };
 		97B83C672056FDBE0096B10A /* Dashboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97B83C662056FDBE0096B10A /* Dashboard.storyboard */; };
 		97B83C692056FDE20096B10A /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97B83C682056FDE20096B10A /* DashboardViewController.swift */; };
@@ -43,9 +41,6 @@
 		97D8232D2056DC7B00800FB1 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97D8232C2056DC7B00800FB1 /* R.generated.swift */; };
 		97D823302056DE0100800FB1 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97D8232F2056DE0100800FB1 /* Constants.swift */; };
 		97E53978207510B100D95BDA /* Routing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E53977207510B100D95BDA /* Routing.swift */; };
-		97E5397A20751D1000D95BDA /* LoginRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E5397920751D1000D95BDA /* LoginRoute.swift */; };
-		97E5397C20751D2800D95BDA /* DashBoardRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E5397B20751D2800D95BDA /* DashBoardRoute.swift */; };
-		97E7D318205AA993009BA321 /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E7D317205AA993009BA321 /* UserController.swift */; };
 		97E7D31A205AAA57009BA321 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E7D319205AAA57009BA321 /* User.swift */; };
 		97E7D31C205AABE9009BA321 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E7D31B205AABE9009BA321 /* UserService.swift */; };
 		97E7D31E205AAE2E009BA321 /* UserDataAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E7D31D205AAE2E009BA321 /* UserDataAccess.swift */; };
@@ -83,7 +78,6 @@
 		394F47F420CC5B1400053A48 /* MovieDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailViewController.swift; sourceTree = "<group>"; };
 		394F47F620CC5B8D00053A48 /* MovieDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MovieDetail.storyboard; sourceTree = "<group>"; };
 		394F47F820CC5BDB00053A48 /* MovieDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailViewModel.swift; sourceTree = "<group>"; };
-		394F47FA20CC5C8A00053A48 /* MovieController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieController.swift; sourceTree = "<group>"; };
 		394F47FC20CC5DF300053A48 /* MovieService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieService.swift; sourceTree = "<group>"; };
 		394F47FE20CC62DF00053A48 /* MovieDataAccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDataAccess.swift; sourceTree = "<group>"; };
 		394F480020CC648600053A48 /* Movies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movies.swift; sourceTree = "<group>"; };
@@ -99,9 +93,8 @@
 		80591D4F7F36F3DAFEB4CEFB /* Pods-MoviesAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoviesAppTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MoviesAppTests/Pods-MoviesAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		97139D08207654FB007B1C65 /* NibInstantiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibInstantiable.swift; sourceTree = "<group>"; };
 		97139D0A20765A0D007B1C65 /* UIView+ConstraintsHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+ConstraintsHelpers.swift"; sourceTree = "<group>"; };
-		97B83C5B2056E73C0096B10A /* TargetType+BaseProject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TargetType+BaseProject.swift"; sourceTree = "<group>"; };
+		97B83C5B2056E73C0096B10A /* TargetType+MoviesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TargetType+MoviesApp.swift"; sourceTree = "<group>"; };
 		97B83C5F2056EA8D0096B10A /* BaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseManager.swift; sourceTree = "<group>"; };
-		97B83C622056EC3B0096B10A /* AppRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRouter.swift; sourceTree = "<group>"; };
 		97B83C642056F9F60096B10A /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		97B83C662056FDBE0096B10A /* Dashboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Dashboard.storyboard; sourceTree = "<group>"; };
 		97B83C682056FDE20096B10A /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
@@ -121,9 +114,6 @@
 		97D8232C2056DC7B00800FB1 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = R.generated.swift; path = SwiftBaseProject/SupportFiles/R.generated.swift; sourceTree = SOURCE_ROOT; };
 		97D8232F2056DE0100800FB1 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		97E53977207510B100D95BDA /* Routing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Routing.swift; sourceTree = "<group>"; };
-		97E5397920751D1000D95BDA /* LoginRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRoute.swift; sourceTree = "<group>"; };
-		97E5397B20751D2800D95BDA /* DashBoardRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashBoardRoute.swift; sourceTree = "<group>"; };
-		97E7D317205AA993009BA321 /* UserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
 		97E7D319205AAA57009BA321 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		97E7D31B205AABE9009BA321 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		97E7D31D205AAE2E009BA321 /* UserDataAccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataAccess.swift; sourceTree = "<group>"; };
@@ -235,21 +225,11 @@
 		97B83C5A2056E7260096B10A /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				97B83C5B2056E73C0096B10A /* TargetType+BaseProject.swift */,
+				97B83C5B2056E73C0096B10A /* TargetType+MoviesApp.swift */,
 				97E7D31B205AABE9009BA321 /* UserService.swift */,
 				394F47FC20CC5DF300053A48 /* MovieService.swift */,
 			);
 			path = Services;
-			sourceTree = "<group>";
-		};
-		97B83C612056EC2C0096B10A /* Routers */ = {
-			isa = PBXGroup;
-			children = (
-				97B83C622056EC3B0096B10A /* AppRouter.swift */,
-				97E5397920751D1000D95BDA /* LoginRoute.swift */,
-				97E5397B20751D2800D95BDA /* DashBoardRoute.swift */,
-			);
-			path = Routers;
 			sourceTree = "<group>";
 		};
 		97C614202056D7A3001FEE20 = {
@@ -283,8 +263,6 @@
 				97EBDECA205AD5570085A836 /* Views */,
 				97E7D316205AA97D009BA321 /* DataAccess */,
 				97E7D315205AA972009BA321 /* Entities */,
-				97E7D314205AA96C009BA321 /* Controllers */,
-				97B83C612056EC2C0096B10A /* Routers */,
 				97B83C5A2056E7260096B10A /* Services */,
 				97C614382056D7A3001FEE20 /* Info.plist */,
 			);
@@ -307,15 +285,6 @@
 				97C6144E2056D7A4001FEE20 /* Info.plist */,
 			);
 			path = SwiftBaseProjectUITests;
-			sourceTree = "<group>";
-		};
-		97E7D314205AA96C009BA321 /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				97E7D317205AA993009BA321 /* UserController.swift */,
-				394F47FA20CC5C8A00053A48 /* MovieController.swift */,
-			);
-			path = Controllers;
 			sourceTree = "<group>";
 		};
 		97E7D315205AA972009BA321 /* Entities */ = {
@@ -753,18 +722,15 @@
 			files = (
 				97C6142F2056D7A3001FEE20 /* LoginViewController.swift in Sources */,
 				97C6142D2056D7A3001FEE20 /* AppDelegate.swift in Sources */,
-				97E7D318205AA993009BA321 /* UserController.swift in Sources */,
 				390D86B620C8BDDA00F2B85C /* Genre.swift in Sources */,
 				394F47FD20CC5DF300053A48 /* MovieService.swift in Sources */,
 				394F47F520CC5B1400053A48 /* MovieDetailViewController.swift in Sources */,
 				3989392020DC6B2000D6EA9F /* PrfoileViewController.swift in Sources */,
-				97B83C5C2056E73C0096B10A /* TargetType+BaseProject.swift in Sources */,
+				97B83C5C2056E73C0096B10A /* TargetType+MoviesApp.swift in Sources */,
 				97E53978207510B100D95BDA /* Routing.swift in Sources */,
-				97B83C632056EC3B0096B10A /* AppRouter.swift in Sources */,
 				97139D09207654FB007B1C65 /* NibInstantiable.swift in Sources */,
 				97EBDECF205AD5C10085A836 /* DashboardViewModel.swift in Sources */,
 				97EBDED4205ADE360085A836 /* BaseDataAccess.swift in Sources */,
-				97E5397C20751D2800D95BDA /* DashBoardRoute.swift in Sources */,
 				394F47FF20CC62DF00053A48 /* MovieDataAccess.swift in Sources */,
 				394F480120CC648600053A48 /* Movies.swift in Sources */,
 				97E7D31C205AABE9009BA321 /* UserService.swift in Sources */,
@@ -778,10 +744,8 @@
 				97E7D31E205AAE2E009BA321 /* UserDataAccess.swift in Sources */,
 				3989392420DC6B5000D6EA9F /* ProfileViewModel.swift in Sources */,
 				394F47F920CC5BDB00053A48 /* MovieDetailViewModel.swift in Sources */,
-				394F47FB20CC5C8A00053A48 /* MovieController.swift in Sources */,
 				97139D0B20765A0D007B1C65 /* UIView+ConstraintsHelpers.swift in Sources */,
 				97B83C652056F9F60096B10A /* LoginViewModel.swift in Sources */,
-				97E5397A20751D1000D95BDA /* LoginRoute.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -17,10 +17,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     _ application: UIApplication,
     didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?
   ) -> Bool {
-    window = UIWindow(frame: UIScreen.main.bounds)
-    let rootVC = AppRouter.sharedInstance.rootViewController
-    window?.rootViewController = rootVC
-    window?.makeKeyAndVisible()
     return true
   }
 

@@ -13,30 +13,25 @@ import RxSwift
 class DashboardViewModel {
 
   private var disposeBag = DisposeBag()
-  var movies = BehaviorRelay<Movies?>(value: nil)
+  var movies = BehaviorRelay<[Movie]?>(value: nil)
   var user = BehaviorRelay<User?>(value: nil)
 
-  init() {
-    user.accept(UserController.sharedInstance.currentUser)
-    movies.accept(MovieController.sharedInstance.moviesList)
-  }
-
   func fetchMovies() {
-    MovieController.sharedInstance.fetchMovies()
-        .subscribe(
-            onNext: { _ in
-                    //                    AppRouter.sharedInstance.navigate(to: LoginRoute.login(username: AppDelegate.getUserNameFromDefaults()), with: .changeRoot)
+    let request: Observable<[Movie]> = MovieServiceManager.shared.request(MovieService.fetchMovies)
+    request.subscribe(
+        onNext: { movies in
+            self.movies.accept(movies)
+        }, onError: { error in
+            print(error.localizedDescription)
         }
-      ).disposed(by: disposeBag)
-  }
+    ).disposed(by: disposeBag)
     
-  func logout() {
-    UserController.sharedInstance.logout()
-      .subscribe(
-        onNext: { _ in
-          AppRouter.sharedInstance.navigate(to: LoginRoute.login(username: AppDelegate.getUserNameFromDefaults()), with: .changeRoot)
-        }
-      ).disposed(by: disposeBag)
+//    MovieServiceManager.shared.request(MovieService.fetchMovies).subscribe(
+//        onNext: { (movies: [Movie]) -> Void in
+//            self.movies.accept(movies)
+//            // AppRouter.sharedInstance.navigate(to: LoginRoute.login(username: AppDelegate.getUserNameFromDefaults()), with: .changeRoot)
+//            }
+//        ).disposed(by: disposeBag)
   }
 
 }

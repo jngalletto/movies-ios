@@ -17,7 +17,6 @@ class LoginViewController: UIViewController {
   @IBOutlet weak var loginBtn: UIButton!
   @IBOutlet weak var errorLabel: UILabel!
     
-    
 
   var viewModel: LoginViewModel!
   private var disposeBag = DisposeBag()
@@ -28,6 +27,7 @@ class LoginViewController: UIViewController {
   }
 
   func setup() {
+    self.viewModel = LoginViewModel(with: userNameField.text)
     userNameField.text = viewModel.userName.value
     userNameField.rx
       .text

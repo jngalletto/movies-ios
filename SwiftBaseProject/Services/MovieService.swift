@@ -10,7 +10,6 @@ import Foundation
 import Moya
 
 enum MovieService {
-    
     case fetchMovies
 }
 
@@ -34,10 +33,12 @@ extension MovieService: TargetType {
         switch self {
         case .fetchMovies:
             return .requestParameters(
-                parameters: [:], encoding: JSONEncoding.default
+                parameters: ["api_key":Constants.api_key], encoding: URLEncoding.default
             )
         }
     }
 }
     
-class MovieServiceManager: BaseManager<MovieService> {}
+class MovieServiceManager: BaseManager<MovieService> {
+    static let shared = MovieServiceManager()
+}

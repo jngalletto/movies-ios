@@ -23,7 +23,7 @@ class DashaboardViewController: UIViewController, UITableViewDelegate, UITableVi
   private var disposeBag = DisposeBag()
 
   @IBOutlet weak var discoverMoviesTableView: UITableView!
-  var movies = Array<Movie>()
+  var movies : [Movie]?
   var indicator = UIActivityIndicatorView()
     
   override func viewDidLoad() {
@@ -36,26 +36,39 @@ class DashaboardViewController: UIViewController, UITableViewDelegate, UITableVi
   }
 
   func setup() {
-    indicator.startAnimating()
-    indicator.backgroundColor = Constants.Colors.accentColor
+    self.viewModel = DashboardViewModel()
+    viewModel.movies.asObservable().subscribe(
+        onNext: { movies in
+            self.movies = movies
+            self.discoverMoviesTableView.reloadData()
+    })
+    
+//    indicator.startAnimating()
+//    indicator.backgroundColor = Constants.Colors.accentColor
     viewModel.fetchMovies()
   }
     
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return movies.count
+    if let movieList = movies {
+        return movieList.count
+    } else {
+        return 0
+    }
   }
     
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCell(withIdentifier: "movieCell") as! DiscoverMovieViewCell
-    let cellMovie = movies[indexPath.row]
-    
-    let title = cellMovie.title
-    let overview = cellMovie.overview
-    let posterPath = cellMovie.posterPath
-    
-    cell.movieTitle?.text = title
-    cell.movieOverview?.text = overview
-    
-    return cell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "movieCell") as! DiscoverMovieViewCell
+        if let movieList = movies {
+            let cellMovie = movieList[indexPath.row]
+            
+            let title = cellMovie.title
+            let overview = cellMovie.overview
+            let posterPath = cellMovie.posterPath
+            
+            cell.movieTitle?.text = title
+            cell.movieOverview?.text = overview
+            
+        }
+        return cell
     }
 }

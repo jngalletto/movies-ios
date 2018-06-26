@@ -7,6 +7,8 @@
 //
 
 import Foundation
+import RxCocoa
+import RxSwift
 
 class ProfileViewModel {
     
@@ -31,15 +33,10 @@ class ProfileViewModel {
     
     func logout() {
         guard let username = userName.value, let password = password.value else { return }
-        UserController.sharedInstance.login(with: username, password: password)
-            .subscribe(
-                onNext: { _ in
-                    AppDelegate.saveUserNameOnDefaults(username: username)
-                    AppRouter.sharedInstance.navigate(to: HomeRoute.dashboard, with: .reset)
-            },
-                onError: { [weak self] error in
-                    self?.error.accept(error.localizedDescription)
+            UserServiceManager.shared.request(UserService.logout).subscribe(
+                onNext: { (user: User) -> Void in
+                    
                 }
-            ).disposed(by: disposeBag)
+            )
     }
 }
