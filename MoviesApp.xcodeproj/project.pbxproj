@@ -10,6 +10,7 @@
 		2BB2A53F2AC6C5FDDAE1E62C /* Pods_SwiftBaseProjectUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9B94875E31222427017C279 /* Pods_SwiftBaseProjectUITests.framework */; };
 		390D86B420C8B9D900F2B85C /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390D86B320C8B9D900F2B85C /* Movie.swift */; };
 		390D86B620C8BDDA00F2B85C /* Genre.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390D86B520C8BDDA00F2B85C /* Genre.swift */; };
+		392997AA20E1FBB600013941 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 392997A920E1FBB600013941 /* Extensions.swift */; };
 		394F47F520CC5B1400053A48 /* MovieDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394F47F420CC5B1400053A48 /* MovieDetailViewController.swift */; };
 		394F47F720CC5B8D00053A48 /* MovieDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 394F47F620CC5B8D00053A48 /* MovieDetail.storyboard */; };
 		394F47F920CC5BDB00053A48 /* MovieDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394F47F820CC5BDB00053A48 /* MovieDetailViewModel.swift */; };
@@ -78,6 +79,7 @@
 		378A38EB0B9EB69EC62EFAC8 /* Pods_MoviesAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MoviesAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		390D86B320C8B9D900F2B85C /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		390D86B520C8BDDA00F2B85C /* Genre.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Genre.swift; sourceTree = "<group>"; };
+		392997A920E1FBB600013941 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		394F47F420CC5B1400053A48 /* MovieDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailViewController.swift; sourceTree = "<group>"; };
 		394F47F620CC5B8D00053A48 /* MovieDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MovieDetail.storyboard; sourceTree = "<group>"; };
 		394F47F820CC5BDB00053A48 /* MovieDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailViewModel.swift; sourceTree = "<group>"; };
@@ -166,6 +168,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		392997A820E1FBA600013941 /* helpers */ = {
+			isa = PBXGroup;
+			children = (
+				392997A920E1FBB600013941 /* Extensions.swift */,
+			);
+			path = helpers;
+			sourceTree = "<group>";
+		};
 		394F47F320CC5AFE00053A48 /* MovieDetail */ = {
 			isa = PBXGroup;
 			children = (
@@ -267,6 +277,7 @@
 		97C6142B2056D7A3001FEE20 /* SwiftBaseProject */ = {
 			isa = PBXGroup;
 			children = (
+				392997A820E1FBA600013941 /* helpers */,
 				97EBDED0205ADA3B0085A836 /* Core */,
 				97EBDECD205AD59E0085A836 /* SupportFiles */,
 				97EBDECA205AD5570085A836 /* Views */,
@@ -275,8 +286,6 @@
 				97E7D314205AA96C009BA321 /* Controllers */,
 				97B83C612056EC2C0096B10A /* Routers */,
 				97B83C5A2056E7260096B10A /* Services */,
-				97D823312056DE6000800FB1 /* Extensions */,
-				97D8232E2056DDF100800FB1 /* Helpers */,
 				97C614382056D7A3001FEE20 /* Info.plist */,
 			);
 			path = SwiftBaseProject;
@@ -298,20 +307,6 @@
 				97C6144E2056D7A4001FEE20 /* Info.plist */,
 			);
 			path = SwiftBaseProjectUITests;
-			sourceTree = "<group>";
-		};
-		97D8232E2056DDF100800FB1 /* Helpers */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Helpers;
-			sourceTree = "<group>";
-		};
-		97D823312056DE6000800FB1 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Extensions;
 			sourceTree = "<group>";
 		};
 		97E7D314205AA96C009BA321 /* Controllers */ = {
@@ -775,6 +770,7 @@
 				97E7D31C205AABE9009BA321 /* UserService.swift in Sources */,
 				97D8232D2056DC7B00800FB1 /* R.generated.swift in Sources */,
 				97B83C602056EA8D0096B10A /* BaseManager.swift in Sources */,
+				392997AA20E1FBB600013941 /* Extensions.swift in Sources */,
 				97E7D31A205AAA57009BA321 /* User.swift in Sources */,
 				390D86B420C8B9D900F2B85C /* Movie.swift in Sources */,
 				97B83C692056FDE20096B10A /* DashboardViewController.swift in Sources */,

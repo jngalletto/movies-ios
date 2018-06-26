@@ -10,33 +10,95 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Dashaboard View Controller-->
+        <!--GO MOVIES-->
         <scene sceneID="QIR-Kp-ihr">
             <objects>
-                <viewController id="lvZ-03-GFU" customClass="DashaboardViewController" customModule="MoviesApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="GO MOVIES" id="lvZ-03-GFU" customClass="DashaboardViewController" customModule="MoviesApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8UL-mW-JMw">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mKF-i0-kro">
-                                <rect key="frame" x="164" y="328.5" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
-                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="QNd-Nu-yu0">
+                                <rect key="frame" x="-0.5" y="0.0" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="default" indentationWidth="10" reuseIdentifier="movieCell" rowHeight="187" id="xSx-4Z-zG4" customClass="DiscoverMovieViewCell" customModule="MoviesApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="187"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xSx-4Z-zG4" id="rKe-89-qvY">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="186.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="SWL-zX-ByC">
+                                                    <rect key="frame" x="0.0" y="0.0" width="143" height="187"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="143" id="Xh6-Nc-f20"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ntf-p5-AwN">
+                                                    <rect key="frame" x="143" y="-0.5" width="232" height="187"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hbo-vU-mhg">
+                                                            <rect key="frame" x="0.0" y="20" width="232" height="21"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U0b-XE-5a8">
+                                                            <rect key="frame" x="0.0" y="51" width="232" height="21"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstItem="U0b-XE-5a8" firstAttribute="width" secondItem="Ntf-p5-AwN" secondAttribute="width" id="Bpx-19-9W3"/>
+                                                        <constraint firstItem="hbo-vU-mhg" firstAttribute="top" secondItem="Ntf-p5-AwN" secondAttribute="top" constant="20" id="KjQ-sT-6Qk"/>
+                                                        <constraint firstAttribute="bottom" secondItem="U0b-XE-5a8" secondAttribute="bottom" constant="115" id="ZGk-zA-idi"/>
+                                                        <constraint firstItem="hbo-vU-mhg" firstAttribute="centerX" secondItem="Ntf-p5-AwN" secondAttribute="centerX" id="fd8-jo-DM5"/>
+                                                        <constraint firstItem="U0b-XE-5a8" firstAttribute="top" secondItem="hbo-vU-mhg" secondAttribute="bottom" constant="10" id="hfW-N8-ZEC"/>
+                                                        <constraint firstItem="hbo-vU-mhg" firstAttribute="width" secondItem="Ntf-p5-AwN" secondAttribute="width" id="nGW-Ns-ebI"/>
+                                                        <constraint firstItem="U0b-XE-5a8" firstAttribute="centerX" secondItem="Ntf-p5-AwN" secondAttribute="centerX" id="rIp-4D-wzv"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="Ntf-p5-AwN" secondAttribute="trailing" id="EMp-Ol-TmL"/>
+                                                <constraint firstItem="Ntf-p5-AwN" firstAttribute="centerY" secondItem="SWL-zX-ByC" secondAttribute="centerY" id="U9g-4u-uOf"/>
+                                                <constraint firstItem="Ntf-p5-AwN" firstAttribute="leading" secondItem="SWL-zX-ByC" secondAttribute="trailing" id="VuH-kA-zqa"/>
+                                                <constraint firstItem="SWL-zX-ByC" firstAttribute="height" secondItem="rKe-89-qvY" secondAttribute="height" id="bmP-IW-raV"/>
+                                                <constraint firstItem="SWL-zX-ByC" firstAttribute="top" secondItem="rKe-89-qvY" secondAttribute="top" id="d6B-sr-Eeu"/>
+                                                <constraint firstAttribute="bottom" secondItem="SWL-zX-ByC" secondAttribute="bottom" id="dEc-Ly-uG9"/>
+                                                <constraint firstItem="SWL-zX-ByC" firstAttribute="leading" secondItem="rKe-89-qvY" secondAttribute="leading" id="fJu-4G-Yon"/>
+                                                <constraint firstItem="Ntf-p5-AwN" firstAttribute="height" secondItem="rKe-89-qvY" secondAttribute="height" id="zFy-eY-zDP"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="movieOverview" destination="U0b-XE-5a8" id="SZ4-ve-63h"/>
+                                            <outlet property="moviePoster" destination="SWL-zX-ByC" id="zGw-Th-5oE"/>
+                                            <outlet property="movieTitle" destination="U0b-XE-5a8" id="uVc-EH-ojW"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                         </subviews>
-                        <color key="backgroundColor" red="0.99215686270000003" green="0.36078431370000003" blue="0.070588235289999995" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="mKF-i0-kro" firstAttribute="centerX" secondItem="j03-wg-EAQ" secondAttribute="centerX" id="2dM-7h-IOm"/>
-                            <constraint firstItem="mKF-i0-kro" firstAttribute="centerY" secondItem="j03-wg-EAQ" secondAttribute="centerY" id="Nxn-SQ-8IC"/>
+                            <constraint firstItem="QNd-Nu-yu0" firstAttribute="width" secondItem="8UL-mW-JMw" secondAttribute="width" id="VKb-zo-Tti"/>
+                            <constraint firstItem="QNd-Nu-yu0" firstAttribute="centerX" secondItem="j03-wg-EAQ" secondAttribute="centerX" id="Xrf-0z-FhX"/>
+                            <constraint firstItem="QNd-Nu-yu0" firstAttribute="centerY" secondItem="j03-wg-EAQ" secondAttribute="centerY" id="az2-6S-WFP"/>
+                            <constraint firstItem="QNd-Nu-yu0" firstAttribute="height" secondItem="8UL-mW-JMw" secondAttribute="height" id="iB6-db-eM2"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="j03-wg-EAQ"/>
                     </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <connections>
-                        <outlet property="logoutButton" destination="mKF-i0-kro" id="xaJ-9s-zpp"/>
+                        <outlet property="discoverMoviesTableView" destination="QNd-Nu-yu0" id="C3p-fM-ufM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HDo-Hj-MOx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="36" y="129"/>
+            <point key="canvasLocation" x="36" y="128.18590704647679"/>
         </scene>
     </scenes>
 </document>

@@ -13,12 +13,23 @@ import RxSwift
 class DashboardViewModel {
 
   private var disposeBag = DisposeBag()
+  var movies = BehaviorRelay<Movies?>(value: nil)
   var user = BehaviorRelay<User?>(value: nil)
 
   init() {
     user.accept(UserController.sharedInstance.currentUser)
+    movies.accept(MovieController.sharedInstance.moviesList)
   }
 
+  func fetchMovies() {
+    MovieController.sharedInstance.fetchMovies()
+        .subscribe(
+            onNext: { _ in
+                    //                    AppRouter.sharedInstance.navigate(to: LoginRoute.login(username: AppDelegate.getUserNameFromDefaults()), with: .changeRoot)
+        }
+      ).disposed(by: disposeBag)
+  }
+    
   func logout() {
     UserController.sharedInstance.logout()
       .subscribe(

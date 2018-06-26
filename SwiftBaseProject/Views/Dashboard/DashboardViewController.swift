@@ -11,31 +11,51 @@ import RxCocoa
 import RxSwift
 import UIKit
 
-class DashaboardViewController: UIViewController {
+class DiscoverMovieViewCell: UITableViewCell {
+  @IBOutlet weak var moviePoster: UIImageView!
+  @IBOutlet weak var movieTitle: UILabel!
+  @IBOutlet weak var movieOverview: UILabel!
+}
 
-  @IBOutlet weak var logoutButton: UIButton!
+class DashaboardViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
   var viewModel: DashboardViewModel!
   private var disposeBag = DisposeBag()
 
+  @IBOutlet weak var discoverMoviesTableView: UITableView!
+  var movies = Array<Movie>()
+  var indicator = UIActivityIndicatorView()
+    
   override func viewDidLoad() {
     super.viewDidLoad()
+    discoverMoviesTableView.delegate = self
+    discoverMoviesTableView.dataSource = self
+    discoverMoviesTableView.reloadData()
+    
     setup()
   }
 
   func setup() {
-    viewModel.user.asObservable().subscribe(
-      onNext: { [unowned self] user in
-        guard let user = user else { return }
-      }
-    ).disposed(by: disposeBag)
-
-    logoutButton.addTarget(self, action: #selector(logout), for: .touchUpInside)
+    indicator.startAnimating()
+    indicator.backgroundColor = Constants.Colors.accentColor
+    viewModel.fetchMovies()
   }
-
-  @objc
-  func logout() {
-    viewModel.logout()
+    
+  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    return movies.count
   }
-
+    
+  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    let cell = tableView.dequeueReusableCell(withIdentifier: "movieCell") as! DiscoverMovieViewCell
+    let cellMovie = movies[indexPath.row]
+    
+    let title = cellMovie.title
+    let overview = cellMovie.overview
+    let posterPath = cellMovie.posterPath
+    
+    cell.movieTitle?.text = title
+    cell.movieOverview?.text = overview
+    
+    return cell
+    }
 }

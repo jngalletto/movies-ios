@@ -41,8 +41,11 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.reuseIdentifier` struct is generated, and contains static references to 0 reuse identifiers.
+  /// This `R.reuseIdentifier` struct is generated, and contains static references to 1 reuse identifiers.
   struct reuseIdentifier {
+    /// Reuse identifier `movieCell`.
+    static let movieCell: Rswift.ReuseIdentifier<DiscoverMovieViewCell> = Rswift.ReuseIdentifier(identifier: "movieCell")
+    
     fileprivate init() {}
   }
   
@@ -51,18 +54,29 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.storyboard` struct is generated, and contains static references to 3 storyboards.
+  /// This `R.storyboard` struct is generated, and contains static references to 6 storyboards.
   struct storyboard {
     /// Storyboard `Dashboard`.
     static let dashboard = _R.storyboard.dashboard()
+    /// Storyboard `Home`.
+    static let home = _R.storyboard.home()
     /// Storyboard `LaunchScreen`.
     static let launchScreen = _R.storyboard.launchScreen()
     /// Storyboard `Main`.
     static let main = _R.storyboard.main()
+    /// Storyboard `MovieDetail`.
+    static let movieDetail = _R.storyboard.movieDetail()
+    /// Storyboard `Profile`.
+    static let profile = _R.storyboard.profile()
     
     /// `UIStoryboard(name: "Dashboard", bundle: ...)`
     static func dashboard(_: Void = ()) -> UIKit.UIStoryboard {
       return UIKit.UIStoryboard(resource: R.storyboard.dashboard)
+    }
+    
+    /// `UIStoryboard(name: "Home", bundle: ...)`
+    static func home(_: Void = ()) -> UIKit.UIStoryboard {
+      return UIKit.UIStoryboard(resource: R.storyboard.home)
     }
     
     /// `UIStoryboard(name: "LaunchScreen", bundle: ...)`
@@ -73,6 +87,16 @@ struct R: Rswift.Validatable {
     /// `UIStoryboard(name: "Main", bundle: ...)`
     static func main(_: Void = ()) -> UIKit.UIStoryboard {
       return UIKit.UIStoryboard(resource: R.storyboard.main)
+    }
+    
+    /// `UIStoryboard(name: "MovieDetail", bundle: ...)`
+    static func movieDetail(_: Void = ()) -> UIKit.UIStoryboard {
+      return UIKit.UIStoryboard(resource: R.storyboard.movieDetail)
+    }
+    
+    /// `UIStoryboard(name: "Profile", bundle: ...)`
+    static func profile(_: Void = ()) -> UIKit.UIStoryboard {
+      return UIKit.UIStoryboard(resource: R.storyboard.profile)
     }
     
     fileprivate init() {}
@@ -111,6 +135,13 @@ struct _R {
       fileprivate init() {}
     }
     
+    struct home: Rswift.StoryboardResourceType {
+      let bundle = R.hostingBundle
+      let name = "Home"
+      
+      fileprivate init() {}
+    }
+    
     struct launchScreen: Rswift.StoryboardResourceWithInitialControllerType {
       typealias InitialController = UIKit.UIViewController
       
@@ -125,6 +156,20 @@ struct _R {
       
       let bundle = R.hostingBundle
       let name = "Main"
+      
+      fileprivate init() {}
+    }
+    
+    struct movieDetail: Rswift.StoryboardResourceType {
+      let bundle = R.hostingBundle
+      let name = "MovieDetail"
+      
+      fileprivate init() {}
+    }
+    
+    struct profile: Rswift.StoryboardResourceType {
+      let bundle = R.hostingBundle
+      let name = "Profile"
       
       fileprivate init() {}
     }
