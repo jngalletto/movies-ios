@@ -18,6 +18,9 @@ class MovieDetailViewController: UIViewController {
     
     @IBOutlet weak var moviePosterImage: UIImageView!
     @IBOutlet weak var movieBackdropImage: UIImageView!
+    @IBOutlet weak var movieTitleLabel: UILabel!
+    @IBOutlet weak var movieGenresTitle: UILabel!
+    
     var movieId: Int!
     var movieResponse: MovieResponse?
     
@@ -46,6 +49,9 @@ class MovieDetailViewController: UIViewController {
             
             movieBackdropImage.imageFromServerURL(urlString: backdropPath)
             moviePosterImage.imageFromServerURL(urlString: posterPath)
+            movieTitleLabel.text = movie.title
+            let genresString = "Adventure, Thriller"
+            movieGenresTitle.text = genresString
         }
     }
     

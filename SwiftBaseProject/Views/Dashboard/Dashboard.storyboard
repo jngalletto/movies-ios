@@ -110,7 +110,7 @@
                 <viewControllerPlaceholder storyboardName="MovieDetail" id="dTJ-fo-fx7" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Av3-66-AFa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="703" y="77"/>
+            <point key="canvasLocation" x="557" y="127"/>
         </scene>
     </scenes>
     <resources>
