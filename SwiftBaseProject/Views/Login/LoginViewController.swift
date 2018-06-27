@@ -67,6 +67,7 @@ class LoginViewController: UIViewController {
     
     loginBtn.addTarget(self, action: #selector(loginTapped), for: .touchUpInside)
   }
+
   @objc func loginTapped() {
     viewModel.login()
   }

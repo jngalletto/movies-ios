@@ -18,8 +18,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="QNd-Nu-yu0">
-                                <rect key="frame" x="-0.5" y="0.0" width="375" height="603"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="187" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="QNd-Nu-yu0">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="554"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="default" indentationWidth="10" reuseIdentifier="movieCell" rowHeight="187" id="xSx-4Z-zG4" customClass="DiscoverMovieViewCell" customModule="MoviesApp" customModuleProvider="target">
@@ -44,8 +44,8 @@
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U0b-XE-5a8">
-                                                            <rect key="frame" x="0.0" y="51" width="232" height="21"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U0b-XE-5a8">
+                                                            <rect key="frame" x="0.0" y="51" width="232" height="20.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -55,7 +55,6 @@
                                                     <constraints>
                                                         <constraint firstItem="U0b-XE-5a8" firstAttribute="width" secondItem="Ntf-p5-AwN" secondAttribute="width" id="Bpx-19-9W3"/>
                                                         <constraint firstItem="hbo-vU-mhg" firstAttribute="top" secondItem="Ntf-p5-AwN" secondAttribute="top" constant="20" id="KjQ-sT-6Qk"/>
-                                                        <constraint firstAttribute="bottom" secondItem="U0b-XE-5a8" secondAttribute="bottom" constant="115" id="ZGk-zA-idi"/>
                                                         <constraint firstItem="hbo-vU-mhg" firstAttribute="centerX" secondItem="Ntf-p5-AwN" secondAttribute="centerX" id="fd8-jo-DM5"/>
                                                         <constraint firstItem="U0b-XE-5a8" firstAttribute="top" secondItem="hbo-vU-mhg" secondAttribute="bottom" constant="10" id="hfW-N8-ZEC"/>
                                                         <constraint firstItem="hbo-vU-mhg" firstAttribute="width" secondItem="Ntf-p5-AwN" secondAttribute="width" id="nGW-Ns-ebI"/>
@@ -85,21 +84,25 @@
                             </tableView>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="QNd-Nu-yu0" firstAttribute="width" secondItem="8UL-mW-JMw" secondAttribute="width" id="VKb-zo-Tti"/>
+                            <constraint firstItem="j03-wg-EAQ" firstAttribute="trailing" secondItem="QNd-Nu-yu0" secondAttribute="trailing" id="IWp-bz-rkt"/>
+                            <constraint firstItem="QNd-Nu-yu0" firstAttribute="leading" secondItem="j03-wg-EAQ" secondAttribute="leading" id="RTN-Az-PtR"/>
+                            <constraint firstItem="j03-wg-EAQ" firstAttribute="bottom" secondItem="QNd-Nu-yu0" secondAttribute="bottom" id="X90-7Q-Amg"/>
                             <constraint firstItem="QNd-Nu-yu0" firstAttribute="centerX" secondItem="j03-wg-EAQ" secondAttribute="centerX" id="Xrf-0z-FhX"/>
                             <constraint firstItem="QNd-Nu-yu0" firstAttribute="centerY" secondItem="j03-wg-EAQ" secondAttribute="centerY" id="az2-6S-WFP"/>
-                            <constraint firstItem="QNd-Nu-yu0" firstAttribute="height" secondItem="8UL-mW-JMw" secondAttribute="height" id="iB6-db-eM2"/>
+                            <constraint firstItem="QNd-Nu-yu0" firstAttribute="top" secondItem="j03-wg-EAQ" secondAttribute="top" id="yWR-31-JgF"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="j03-wg-EAQ"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Item" image="movies" selectedImage="movies" id="fs0-FR-vzI"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="discoverMoviesTableView" destination="QNd-Nu-yu0" id="C3p-fM-ufM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HDo-Hj-MOx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="36" y="128.18590704647679"/>
+            <point key="canvasLocation" x="35.5" y="127.5"/>
         </scene>
         <!--MovieDetail-->
         <scene sceneID="SJ6-mb-Eq7">
@@ -110,4 +113,7 @@
             <point key="canvasLocation" x="703" y="77"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="movies" width="16" height="16"/>
+    </resources>
 </document>

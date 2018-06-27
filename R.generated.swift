@@ -197,14 +197,21 @@ struct _R: Rswift.Validatable {
   
   struct storyboard: Rswift.Validatable {
     static func validate() throws {
+      try settings.validate()
       try home.validate()
+      try dashboard.validate()
+      try profile.validate()
     }
     
-    struct dashboard: Rswift.StoryboardResourceWithInitialControllerType {
+    struct dashboard: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
       typealias InitialController = DashaboardViewController
       
       let bundle = R.hostingBundle
       let name = "Dashboard"
+      
+      static func validate() throws {
+        if UIKit.UIImage(named: "movies") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'movies' is used in storyboard 'Dashboard', but couldn't be loaded.") }
+      }
       
       fileprivate init() {}
     }
@@ -258,20 +265,28 @@ struct _R: Rswift.Validatable {
       fileprivate init() {}
     }
     
-    struct profile: Rswift.StoryboardResourceWithInitialControllerType {
+    struct profile: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
       typealias InitialController = ProfileViewController
       
       let bundle = R.hostingBundle
       let name = "Profile"
       
+      static func validate() throws {
+        if UIKit.UIImage(named: "profile") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'profile' is used in storyboard 'Profile', but couldn't be loaded.") }
+      }
+      
       fileprivate init() {}
     }
     
-    struct settings: Rswift.StoryboardResourceWithInitialControllerType {
+    struct settings: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
       typealias InitialController = SettingsViewController
       
       let bundle = R.hostingBundle
       let name = "Settings"
+      
+      static func validate() throws {
+        if UIKit.UIImage(named: "settings") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'settings' is used in storyboard 'Settings', but couldn't be loaded.") }
+      }
       
       fileprivate init() {}
     }
