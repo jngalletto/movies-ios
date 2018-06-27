@@ -23,12 +23,13 @@ class MovieDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.moviePosterImage.layer.cornerRadius = 6.0
+        self.moviePosterImage.clipsToBounds = true
         setup()
     }
     
     func setup() {
         self.viewModel = MovieDetailViewModel()
-        
         viewModel.movie.asObservable().subscribe(
             onNext: { movie in
                 self.movieResponse = movie
