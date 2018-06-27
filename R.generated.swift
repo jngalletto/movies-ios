@@ -31,8 +31,30 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 0 images.
+  /// This `R.image` struct is generated, and contains static references to 3 images.
   struct image {
+    /// Image `movies`.
+    static let movies = Rswift.ImageResource(bundle: R.hostingBundle, name: "movies")
+    /// Image `profile`.
+    static let profile = Rswift.ImageResource(bundle: R.hostingBundle, name: "profile")
+    /// Image `settings`.
+    static let settings = Rswift.ImageResource(bundle: R.hostingBundle, name: "settings")
+    
+    /// `UIImage(named: "movies", bundle: ..., traitCollection: ...)`
+    static func movies(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.movies, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "profile", bundle: ..., traitCollection: ...)`
+    static func profile(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.profile, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "settings", bundle: ..., traitCollection: ...)`
+    static func settings(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.settings, compatibleWith: traitCollection)
+    }
+    
     fileprivate init() {}
   }
   
@@ -84,7 +106,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.storyboard` struct is generated, and contains static references to 7 storyboards.
+  /// This `R.storyboard` struct is generated, and contains static references to 8 storyboards.
   struct storyboard {
     /// Storyboard `Dashboard`.
     static let dashboard = _R.storyboard.dashboard()
@@ -96,6 +118,8 @@ struct R: Rswift.Validatable {
     static let main = _R.storyboard.main()
     /// Storyboard `MovieDetail`.
     static let movieDetail = _R.storyboard.movieDetail()
+    /// Storyboard `MovieTrailer`.
+    static let movieTrailer = _R.storyboard.movieTrailer()
     /// Storyboard `Profile`.
     static let profile = _R.storyboard.profile()
     /// Storyboard `Settings`.
@@ -126,6 +150,11 @@ struct R: Rswift.Validatable {
       return UIKit.UIStoryboard(resource: R.storyboard.movieDetail)
     }
     
+    /// `UIStoryboard(name: "MovieTrailer", bundle: ...)`
+    static func movieTrailer(_: Void = ()) -> UIKit.UIStoryboard {
+      return UIKit.UIStoryboard(resource: R.storyboard.movieTrailer)
+    }
+    
     /// `UIStoryboard(name: "Profile", bundle: ...)`
     static func profile(_: Void = ()) -> UIKit.UIStoryboard {
       return UIKit.UIStoryboard(resource: R.storyboard.profile)
@@ -146,7 +175,7 @@ struct R: Rswift.Validatable {
   
   fileprivate struct intern: Rswift.Validatable {
     fileprivate static func validate() throws {
-      // There are no resources to validate
+      try _R.validate()
     }
     
     fileprivate init() {}
@@ -157,12 +186,20 @@ struct R: Rswift.Validatable {
   fileprivate init() {}
 }
 
-struct _R {
+struct _R: Rswift.Validatable {
+  static func validate() throws {
+    try storyboard.validate()
+  }
+  
   struct nib {
     fileprivate init() {}
   }
   
-  struct storyboard {
+  struct storyboard: Rswift.Validatable {
+    static func validate() throws {
+      try home.validate()
+    }
+    
     struct dashboard: Rswift.StoryboardResourceWithInitialControllerType {
       typealias InitialController = DashaboardViewController
       
@@ -172,11 +209,17 @@ struct _R {
       fileprivate init() {}
     }
     
-    struct home: Rswift.StoryboardResourceWithInitialControllerType {
+    struct home: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
       typealias InitialController = UIKit.UITabBarController
       
       let bundle = R.hostingBundle
       let name = "Home"
+      
+      static func validate() throws {
+        if UIKit.UIImage(named: "settings") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'settings' is used in storyboard 'Home', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "profile") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'profile' is used in storyboard 'Home', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "movies") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'movies' is used in storyboard 'Home', but couldn't be loaded.") }
+      }
       
       fileprivate init() {}
     }
@@ -204,6 +247,13 @@ struct _R {
       
       let bundle = R.hostingBundle
       let name = "MovieDetail"
+      
+      fileprivate init() {}
+    }
+    
+    struct movieTrailer: Rswift.StoryboardResourceType {
+      let bundle = R.hostingBundle
+      let name = "MovieTrailer"
       
       fileprivate init() {}
     }

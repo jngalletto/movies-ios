@@ -9,19 +9,17 @@
 import Foundation
 import UIKit
 
-extension CGRect{
-    init(_ x:CGFloat,_ y:CGFloat,_ width:CGFloat,_ height:CGFloat) {
-        self.init(x:x,y:y,width:width,height:height)
-    }
-    
-}
-extension CGSize{
-    init(_ width:CGFloat,_ height:CGFloat) {
-        self.init(width:width,height:height)
-    }
-}
-extension CGPoint{
-    init(_ x:CGFloat,_ y:CGFloat) {
-        self.init(x:x,y:y)
+extension UIImageView {
+    public func imageFromServerURL(urlString: String) {
+        URLSession.shared.dataTask(with: URL(string: urlString)!, completionHandler: { (data, response, error) -> Void in
+            
+            if error != nil {
+                return
+            }
+            DispatchQueue.main.async(execute: { () -> Void in
+                self.image = UIImage(data: data!)
+            })
+            
+        }).resume()
     }
 }

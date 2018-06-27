@@ -24,15 +24,14 @@ class DashaboardViewController: UIViewController, UITableViewDelegate, UITableVi
 
   @IBOutlet weak var discoverMoviesTableView: UITableView!
   var movies : [Movie]?
+  var moviesAux = [Movie]()
   var indicator = UIActivityIndicatorView()
     
   override func viewDidLoad() {
     super.viewDidLoad()
+    setup()
     discoverMoviesTableView.delegate = self
     discoverMoviesTableView.dataSource = self
-    discoverMoviesTableView.reloadData()
-    
-    setup()
   }
 
   func setup() {
@@ -43,9 +42,6 @@ class DashaboardViewController: UIViewController, UITableViewDelegate, UITableVi
             self.discoverMoviesTableView.reloadData()
         }
     )
-    
-//    indicator.startAnimating()
-//    indicator.backgroundColor = Constants.Colors.accentColor
     viewModel.fetchMovies()
   }
     
@@ -58,29 +54,31 @@ class DashaboardViewController: UIViewController, UITableViewDelegate, UITableVi
   }
     
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "movieCell") as! DiscoverMovieViewCell
-        if let movieList = movies {
-            let cellMovie = movieList[indexPath.row]
+    let cell = tableView.dequeueReusableCell(withIdentifier: "movieCell") as! DiscoverMovieViewCell
+    if let movieList = movies {
+        let cellMovie = movieList[indexPath.row]
+        
+        let title = cellMovie.title
+        let overview = cellMovie.overview
+        let posterPath = "\(Constants.apiImageBaseUrl)/t/p/w500\(cellMovie.posterPath)"
             
-            let title = cellMovie.title
-            let overview = cellMovie.overview
-            let posterPath = cellMovie.posterPath
-            
-            cell.movieTitle?.text = title
-            cell.movieOverview?.text = overview
-            
-        }
-        return cell
+        cell.movieTitle?.text = title
+        cell.movieOverview?.text = overview
+        cell.moviePoster?.imageFromServerURL(urlString: posterPath)
+      }
+      return cell
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        let indexPath = tableView.indexPathForSelectedRow
-//        let selectedRow = indexPath!.row
-//        
-//        if segue.identifier == "matchSegue" {
-//            let selectedMatchId = matches[selectedRow].identifier
-//            let matchController = segue.destination as! MatchViewController
-//            matchController.matchId = selectedMatchId
-//        }
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    let indexPath = discoverMoviesTableView.indexPathForSelectedRow
+    let selectedRow = indexPath!.row
+        
+    if segue.identifier == "movieDetailSegue" {
+        if let movieList = movies {
+            let selectedMovieId = movieList[selectedRow].id
+            let movieDetailController = segue.destination as! MovieDetailViewController
+            movieDetailController.movieId = selectedMovieId
+        }
     }
+  }
 }

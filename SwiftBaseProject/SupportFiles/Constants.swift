@@ -14,8 +14,10 @@ struct Constants {
   // Sample env management
   #if STAGING
     static let apiBaseUrl = URL(string: "https://api.themoviedb.org/3")!
+    static let apiImageBaseUrl = URL(string: "https://image.tmdb.org")!
   #else
-    static let apiBaseUrl = URL(string: "point_to_prod_here")!
+    static let apiBaseUrl = URL(string: "https://api.themoviedb.org/3")!
+    static let apiImageBaseUrl = URL(string: "https://image.tmdb.org")!
   #endif
     
     struct Colors {

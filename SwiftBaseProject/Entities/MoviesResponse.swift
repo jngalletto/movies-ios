@@ -8,8 +8,7 @@
 
 import Foundation
 
-struct Movies: Codable {
-    
-    let movieList: [Movie]
+struct MoviesResponse: Codable {
+    let page: Int
+    let results: [Movie]
 }
-

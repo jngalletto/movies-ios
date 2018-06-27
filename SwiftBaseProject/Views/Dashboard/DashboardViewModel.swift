@@ -17,21 +17,13 @@ class DashboardViewModel {
   var user = BehaviorRelay<User?>(value: nil)
 
   func fetchMovies() {
-    let request: Observable<[Movie]> = MovieServiceManager.shared.request(MovieService.fetchMovies)
+    let request: Observable<MoviesResponse> = MovieServiceManager.shared.request(MovieService.fetchMovies)
     request.subscribe(
         onNext: { movies in
-            self.movies.accept(movies)
+            self.movies.accept(movies.results)
         }, onError: { error in
             print(error.localizedDescription)
         }
     ).disposed(by: disposeBag)
-    
-//    MovieServiceManager.shared.request(MovieService.fetchMovies).subscribe(
-//        onNext: { (movies: [Movie]) -> Void in
-//            self.movies.accept(movies)
-//            // AppRouter.sharedInstance.navigate(to: LoginRoute.login(username: AppDelegate.getUserNameFromDefaults()), with: .changeRoot)
-//            }
-//        ).disposed(by: disposeBag)
   }
-
 }

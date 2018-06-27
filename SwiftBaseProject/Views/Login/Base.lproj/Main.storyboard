@@ -45,9 +45,6 @@
                                         <state key="normal" title="Login">
                                             <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.21960784310000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
-                                        <connections>
-                                            <segue destination="WWj-vA-3Lv" kind="show" identifier="homeSegue" id="yPZ-pg-QBA"/>
-                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -67,6 +64,7 @@
                         <outlet property="loginBtn" destination="yz4-rN-M3u" id="nUp-w9-klH"/>
                         <outlet property="passwordField" destination="aaF-K7-gYq" id="lOt-t2-rDp"/>
                         <outlet property="userNameField" destination="Jiq-UN-Xl7" id="S8k-4k-4Fv"/>
+                        <segue destination="WWj-vA-3Lv" kind="push" identifier="homeSegue" id="mRP-6Z-YN5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -76,7 +74,9 @@
         <!--Home-->
         <scene sceneID="En7-oH-jfE">
             <objects>
-                <viewControllerPlaceholder storyboardName="Home" id="WWj-vA-3Lv" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="Home" id="WWj-vA-3Lv" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="WhL-L1-XBh"/>
+                </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xLJ-oU-trz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="285" y="97"/>

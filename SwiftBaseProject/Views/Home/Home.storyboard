@@ -13,11 +13,12 @@
         <scene sceneID="E4y-3y-zZe">
             <objects>
                 <tabBarController id="oIi-i8-Him" sceneMemberID="viewController">
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Z1v-Fl-oIE">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.98039215686274506" green="0.98039215686274506" blue="0.98039215686274506" alpha="0.0" colorSpace="calibratedRGB"/>
+                        <color key="tintColor" red="0.2196078431372549" green="0.2196078431372549" blue="0.2196078431372549" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="selectedImageTintColor" red="1" green="0.80392156859999997" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="pk6-AX-BrD" kind="relationship" relationship="viewControllers" id="fXB-vg-qqK"/>
@@ -33,7 +34,7 @@
         <scene sceneID="snd-Bo-VUu">
             <objects>
                 <viewControllerPlaceholder storyboardName="Dashboard" id="pk6-AX-BrD" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Discover" image="movies_tab" id="6iz-Jc-Rio"/>
+                    <tabBarItem key="tabBarItem" title="Discover" image="movies" selectedImage="movies" springLoaded="YES" id="6iz-Jc-Rio"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RG8-9j-wKu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -43,7 +44,7 @@
         <scene sceneID="2kJ-Sd-1vD">
             <objects>
                 <viewControllerPlaceholder storyboardName="Profile" id="Yko-t0-dZZ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Profile" image="profile_tab" id="MY7-wV-JFP"/>
+                    <tabBarItem key="tabBarItem" title="Profile" image="profile" selectedImage="profile" id="MY7-wV-JFP"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jl9-Ar-ICm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -53,7 +54,7 @@
         <scene sceneID="Ohr-sm-8XK">
             <objects>
                 <viewControllerPlaceholder storyboardName="Settings" id="qtI-WO-vpV" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="5Dd-GE-UPI"/>
+                    <tabBarItem key="tabBarItem" title="Settings" image="settings" selectedImage="settings" id="5Dd-GE-UPI"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="10q-qI-UBQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -61,7 +62,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="movies_tab" width="16" height="16"/>
-        <image name="profile_tab" width="10" height="10"/>
+        <image name="movies" width="16" height="16"/>
+        <image name="profile" width="16" height="16"/>
+        <image name="settings" width="16" height="16"/>
     </resources>
 </document>

@@ -11,6 +11,7 @@ import Moya
 
 enum MovieService {
     case fetchMovies
+    case fetchMovie(id: Int)
 }
 
 extension MovieService: TargetType {
@@ -22,6 +23,8 @@ extension MovieService: TargetType {
         switch self {
         case .fetchMovies:
             return "/discover/movie"
+        case .fetchMovie(let id):
+            return "/movie/\(id)"
         }
     }
     
@@ -32,6 +35,10 @@ extension MovieService: TargetType {
     var task: Task {
         switch self {
         case .fetchMovies:
+            return .requestParameters(
+                parameters: ["api_key":Constants.api_key], encoding: URLEncoding.default
+            )
+        case .fetchMovie( _):
             return .requestParameters(
                 parameters: ["api_key":Constants.api_key], encoding: URLEncoding.default
             )

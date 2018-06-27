@@ -13,15 +13,15 @@ import RxSwift
 class MovieDetailViewModel {
     
     private var disposeBag = DisposeBag()
-    var movies = BehaviorRelay<Movie?>(value: nil)
+    var movie = BehaviorRelay<MovieResponse?>(value: nil)
     
-    func fetchMovies() {
-        
-//        MovieController.sharedInstance.fetchMovies()
-//            .subscribe(
-//                onNext: { _ in
-//                    AppRouter.sharedInstance.navigate(to: LoginRoute.login(username: AppDelegate.getUserNameFromDefaults()), with: .changeRoot)
-//            }
-//            ).disposed(by: disposeBag)
+    func fetchMovie(movieIdentifier: Int) {
+        let request: Observable<MovieResponse> = MovieServiceManager.shared.request(MovieService.fetchMovie(id: movieIdentifier))
+        request.subscribe(
+            onNext: { movie in
+                self.movie.accept(movie)
+        }, onError: { error in
+            print(error.localizedDescription)
+        }).disposed(by: disposeBag)
     }
 }

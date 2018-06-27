@@ -15,11 +15,11 @@
             <objects>
                 <viewController title="GO MOVIES" id="lvZ-03-GFU" customClass="DashaboardViewController" customModule="MoviesApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8UL-mW-JMw">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="QNd-Nu-yu0">
-                                <rect key="frame" x="-0.5" y="10" width="375" height="667"/>
+                                <rect key="frame" x="-0.5" y="0.0" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="default" indentationWidth="10" reuseIdentifier="movieCell" rowHeight="187" id="xSx-4Z-zG4" customClass="DiscoverMovieViewCell" customModule="MoviesApp" customModuleProvider="target">
@@ -92,6 +92,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="j03-wg-EAQ"/>
                     </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <connections>
                         <outlet property="discoverMoviesTableView" destination="QNd-Nu-yu0" id="C3p-fM-ufM"/>
                     </connections>

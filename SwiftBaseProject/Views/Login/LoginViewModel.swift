@@ -35,13 +35,16 @@ class LoginViewModel {
   func login() {
     guard let username = userName.value, let password = password.value else { return }
     let userRequest: Observable<User> = UserServiceManager.shared.request(UserService.login(username: username, password: password))
-    userRequest.subscribe(
-        onNext: { user in
-            AppDelegate.saveUserNameOnDefaults(username: username)
-            self.loginSuccess.accept(true)
-        }, onError: { error in
-            print(error.localizedDescription)
-        }
-    ).disposed(by: disposeBag)
+    
+    AppDelegate.saveUserNameOnDefaults(username: username)
+    self.loginSuccess.accept(true)
+//    userRequest.subscribe(
+//        onNext: { user in
+//            AppDelegate.saveUserNameOnDefaults(username: username)
+//            self.loginSuccess.accept(true)
+//        }, onError: { error in
+//            print(error.localizedDescription)
+//        }
+//    ).disposed(by: disposeBag)
   }
 }
