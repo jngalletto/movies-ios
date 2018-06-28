@@ -101,16 +101,24 @@ class DashaboardViewController: UIViewController, UITableViewDelegate, UITableVi
         return genreCell
     }
     
-  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    let indexPath = discoverMoviesTableView.indexPathForSelectedRow
-    let selectedRow = indexPath!.row
-        
-    if segue.identifier == "movieDetailSegue" {
-        if let movieList = movies {
-            let selectedMovieId = movieList[selectedRow].id
-            let movieDetailController = segue.destination as! MovieDetailViewController
-            movieDetailController.movieId = selectedMovieId
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if let genresList = genres {
+            let genre = genresList[indexPath.item]
+            viewModel.fetchMoviesByGenres(genreId: genre.id)
         }
     }
-  }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let indexPath = discoverMoviesTableView.indexPathForSelectedRow
+        let selectedRow = indexPath!.row
+        
+        if segue.identifier == "movieDetailSegue" {
+            if let movieList = movies {
+                let selectedMovieId = movieList[selectedRow].id
+                let movieDetailController = segue.destination as! MovieDetailViewController
+                movieDetailController.movieId = selectedMovieId
+            }
+        }
+    }
 }

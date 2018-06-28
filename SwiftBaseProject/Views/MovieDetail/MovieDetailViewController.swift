@@ -20,6 +20,8 @@ class MovieDetailViewController: UIViewController {
     @IBOutlet weak var movieBackdropImage: UIImageView!
     @IBOutlet weak var movieTitleLabel: UILabel!
     @IBOutlet weak var movieGenresTitle: UILabel!
+    @IBOutlet weak var movieDescriptionLabel: UILabel!
+    @IBOutlet weak var movieStarsLabel: UILabel!
     
     var movieId: Int!
     var movieResponse: MovieResponse?
@@ -46,12 +48,13 @@ class MovieDetailViewController: UIViewController {
         if let movie = movieResponse {
             let posterPath = "\(Constants.apiImageBaseUrl)/t/p/w500\(movie.posterPath)"
             let backdropPath = "\(Constants.apiImageBaseUrl)/t/p/w500\(movie.backdropPath)"
-            
             movieBackdropImage.imageFromServerURL(urlString: backdropPath)
             moviePosterImage.imageFromServerURL(urlString: posterPath)
             movieTitleLabel.text = movie.title
-            let genresString = "Adventure, Thriller"
+            let genresString = ""
             movieGenresTitle.text = genresString
+            movieDescriptionLabel.text = movie.overview
+            movieStarsLabel.text = String(movie.budget)
         }
     }
     

@@ -37,4 +37,14 @@ class DashboardViewModel {
             print(error.localizedDescription)
         }).disposed(by: disposeBag)
     }
+    
+    func fetchMoviesByGenres(genreId: Int) {
+        let request: Observable<MoviesResponse> = MovieServiceManager.shared.request(MovieService.fetchMoviesByGenre(genreId: genreId))
+        request.subscribe(
+            onNext: { movies in
+                self.movies.accept(movies.results)
+        }, onError: { error in
+            print(error.localizedDescription)
+        }).disposed(by: disposeBag)
+    }
 }

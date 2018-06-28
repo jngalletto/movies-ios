@@ -77,16 +77,25 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="onZ-7R-IIr">
                                         <rect key="frame" x="10" y="165.5" width="355" height="87.5"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Stars:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q32-gC-lFo">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Budget" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q32-gC-lFo">
                                                 <rect key="frame" x="8" y="8" width="44.5" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="erG-Bn-fET">
+                                                <rect key="frame" x="88" y="8" width="42" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <constraints>
+                                            <constraint firstItem="erG-Bn-fET" firstAttribute="top" secondItem="onZ-7R-IIr" secondAttribute="top" constant="8" id="Ug1-uU-bT1"/>
                                             <constraint firstItem="q32-gC-lFo" firstAttribute="top" secondItem="onZ-7R-IIr" secondAttribute="top" constant="8" id="Vxj-wV-Wzk"/>
+                                            <constraint firstItem="erG-Bn-fET" firstAttribute="leading" secondItem="q32-gC-lFo" secondAttribute="trailing" constant="35.5" id="Wta-ku-Byo"/>
                                             <constraint firstItem="q32-gC-lFo" firstAttribute="leading" secondItem="onZ-7R-IIr" secondAttribute="leading" constant="8" id="oVy-pD-l5u"/>
+                                            <constraint firstAttribute="trailing" secondItem="erG-Bn-fET" secondAttribute="trailing" constant="225" id="osb-ub-Lmf"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wda-lO-zAZ">
@@ -98,9 +107,18 @@
                                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vEV-9y-YUt">
+                                                <rect key="frame" x="86" y="8" width="42" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="vEV-9y-YUt" secondAttribute="trailing" constant="227" id="SRG-13-dUZ"/>
+                                            <constraint firstItem="vEV-9y-YUt" firstAttribute="top" secondItem="wda-lO-zAZ" secondAttribute="top" constant="8" id="Zjf-Ar-MFT"/>
                                             <constraint firstItem="tUE-7p-UeB" firstAttribute="top" secondItem="wda-lO-zAZ" secondAttribute="top" constant="8" id="cfz-HW-mZl"/>
+                                            <constraint firstItem="vEV-9y-YUt" firstAttribute="leading" secondItem="tUE-7p-UeB" secondAttribute="trailing" constant="32.5" id="hxo-Le-ASs"/>
                                             <constraint firstAttribute="height" constant="108" id="nqx-p7-D09"/>
                                             <constraint firstItem="tUE-7p-UeB" firstAttribute="leading" secondItem="wda-lO-zAZ" secondAttribute="leading" constant="8" id="vfd-vj-2Zr"/>
                                         </constraints>
@@ -143,8 +161,10 @@
                     </view>
                     <connections>
                         <outlet property="movieBackdropImage" destination="fHg-mm-aEA" id="9T3-fZ-3Yt"/>
+                        <outlet property="movieDescriptionLabel" destination="vEV-9y-YUt" id="mGl-5v-KQk"/>
                         <outlet property="movieGenresTitle" destination="eRQ-Le-sW3" id="8li-AD-e9K"/>
                         <outlet property="moviePosterImage" destination="92j-BI-Wpy" id="PrM-7w-Lr5"/>
+                        <outlet property="movieStarsLabel" destination="erG-Bn-fET" id="r08-5F-Yn0"/>
                         <outlet property="movieTitleLabel" destination="m31-yZ-iVp" id="ROb-lm-m3d"/>
                     </connections>
                 </viewController>

@@ -12,6 +12,7 @@ import Moya
 enum MovieService {
     case fetchMovies
     case fetchGenres
+    case fetchMoviesByGenre(genreId: Int)
     case fetchMovie(id: Int)
     case fetchTopRated
     case fetchFollowing
@@ -34,6 +35,8 @@ extension MovieService: TargetType {
             return "/person/popular"
         case .fetchGenres:
             return "/genre/movie/list"
+        case .fetchMoviesByGenre( _):
+            return "/discover/movie"
         }
     }
     
@@ -62,6 +65,10 @@ extension MovieService: TargetType {
         case .fetchGenres:
             return .requestParameters(
                 parameters: ["api_key":Constants.api_key], encoding: URLEncoding.default
+            )
+        case .fetchMoviesByGenre(let genreId):
+            return .requestParameters(
+                parameters: ["api_key":Constants.api_key, "with_genres":genreId], encoding: URLEncoding.default
             )
         }
     }

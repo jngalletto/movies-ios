@@ -111,6 +111,7 @@
                                                 </label>
                                             </subviews>
                                         </view>
+                                        <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstItem="eFQ-Hs-RfR" firstAttribute="centerY" secondItem="KJe-Sd-4vq" secondAttribute="centerY" id="0tT-2R-7r5"/>
                                             <constraint firstItem="eFQ-Hs-RfR" firstAttribute="leading" secondItem="KJe-Sd-4vq" secondAttribute="leading" constant="10" id="LvB-US-KFq"/>
