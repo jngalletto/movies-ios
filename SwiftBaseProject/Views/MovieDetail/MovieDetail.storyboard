@@ -141,17 +141,31 @@
                                     <constraint firstItem="wda-lO-zAZ" firstAttribute="leading" secondItem="Unj-wJ-V45" secondAttribute="leading" constant="10" id="otW-tr-MbQ"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" alpha="0.80000000000000004" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ekU-ka-NH5">
+                                <rect key="frame" x="156" y="90" width="64" height="64"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="64" id="qyP-Ir-i3A"/>
+                                    <constraint firstAttribute="height" constant="64" id="sWb-Vf-9Q0"/>
+                                </constraints>
+                                <state key="normal" title="Button" backgroundImage="play_icon"/>
+                                <connections>
+                                    <action selector="movieTrailerTapped:" destination="21B-fj-31Q" eventType="touchUpInside" id="Uyg-ql-src"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.94117647058823528" green="0.95686274509803915" blue="0.95686274509803915" alpha="1" colorSpace="calibratedRGB"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="gAJ-zn-tec" firstAttribute="top" secondItem="fHg-mm-aEA" secondAttribute="bottom" constant="-20" id="7Zu-0M-sEV"/>
                             <constraint firstItem="fHg-mm-aEA" firstAttribute="centerX" secondItem="6Pe-YH-fBA" secondAttribute="centerX" id="8xg-IW-3Je"/>
                             <constraint firstItem="6Pe-YH-fBA" firstAttribute="trailing" secondItem="gAJ-zn-tec" secondAttribute="trailing" id="Dhw-iu-UFa"/>
                             <constraint firstItem="Unj-wJ-V45" firstAttribute="top" secondItem="gAJ-zn-tec" secondAttribute="bottom" constant="10" id="I36-J2-LFl"/>
+                            <constraint firstItem="ekU-ka-NH5" firstAttribute="centerX" secondItem="fHg-mm-aEA" secondAttribute="centerX" id="MWd-DD-h4g"/>
                             <constraint firstItem="gAJ-zn-tec" firstAttribute="leading" secondItem="6Pe-YH-fBA" secondAttribute="leading" constant="10" id="Obv-oX-fqU"/>
                             <constraint firstItem="fHg-mm-aEA" firstAttribute="top" secondItem="6Pe-YH-fBA" secondAttribute="top" id="Qax-fS-3WP"/>
                             <constraint firstItem="6Pe-YH-fBA" firstAttribute="bottom" secondItem="Unj-wJ-V45" secondAttribute="bottom" id="Too-2K-Zwi"/>
                             <constraint firstItem="Unj-wJ-V45" firstAttribute="leading" secondItem="6Pe-YH-fBA" secondAttribute="leading" id="evu-l0-sFj"/>
+                            <constraint firstItem="ekU-ka-NH5" firstAttribute="centerY" secondItem="fHg-mm-aEA" secondAttribute="centerY" id="fHa-wa-Wi6"/>
                             <constraint firstItem="6Pe-YH-fBA" firstAttribute="trailing" secondItem="Unj-wJ-V45" secondAttribute="trailing" id="qJp-Ko-k1z"/>
                             <constraint firstItem="Unj-wJ-V45" firstAttribute="width" secondItem="JX9-cR-SnQ" secondAttribute="width" id="s0C-db-9yb"/>
                             <constraint firstItem="m31-yZ-iVp" firstAttribute="top" secondItem="fHg-mm-aEA" secondAttribute="bottom" constant="20" id="vhW-CR-b6R"/>
@@ -166,11 +180,23 @@
                         <outlet property="moviePosterImage" destination="92j-BI-Wpy" id="PrM-7w-Lr5"/>
                         <outlet property="movieStarsLabel" destination="erG-Bn-fET" id="r08-5F-Yn0"/>
                         <outlet property="movieTitleLabel" destination="m31-yZ-iVp" id="ROb-lm-m3d"/>
+                        <segue destination="cZj-IK-pH6" kind="show" identifier="trailerSegue" id="RET-b4-Rcx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qPx-lo-meX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="44" y="66.11694152923539"/>
         </scene>
+        <!--TrailerMovie-->
+        <scene sceneID="25l-DM-wYZ">
+            <objects>
+                <viewControllerPlaceholder storyboardName="TrailerMovie" id="cZj-IK-pH6" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="olN-32-TjP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="731" y="71"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="play_icon" width="21" height="21"/>
+    </resources>
 </document>

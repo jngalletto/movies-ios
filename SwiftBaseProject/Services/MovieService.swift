@@ -16,6 +16,7 @@ enum MovieService {
     case fetchMovie(id: Int)
     case fetchTopRated
     case fetchFollowing
+    case fetchTrailer(id: Int)
 }
 
 extension MovieService: TargetType {
@@ -37,6 +38,8 @@ extension MovieService: TargetType {
             return "/genre/movie/list"
         case .fetchMoviesByGenre( _):
             return "/discover/movie"
+        case .fetchTrailer(let id):
+            return "movie/\(id)/videos"
         }
     }
     
@@ -69,6 +72,10 @@ extension MovieService: TargetType {
         case .fetchMoviesByGenre(let genreId):
             return .requestParameters(
                 parameters: ["api_key":Constants.api_key, "with_genres":genreId], encoding: URLEncoding.default
+            )
+        case .fetchTrailer( _):
+            return .requestParameters(
+                parameters: ["api_key":Constants.api_key], encoding: URLEncoding.default
             )
         }
     }

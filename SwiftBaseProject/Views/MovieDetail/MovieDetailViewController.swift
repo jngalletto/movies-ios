@@ -10,6 +10,8 @@ import Foundation
 import RxCocoa
 import RxSwift
 import UIKit
+import AVKit
+import AVFoundation
 
 class MovieDetailViewController: UIViewController {
     
@@ -25,6 +27,7 @@ class MovieDetailViewController: UIViewController {
     
     var movieId: Int!
     var movieResponse: MovieResponse?
+    var movieTrailer: Trailer?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,6 +44,14 @@ class MovieDetailViewController: UIViewController {
                 self.updateData()
         })
         
+        viewModel.trailer.asObservable().subscribe(
+            onNext: { trailer in
+                if let movieTrailer = trailer {
+                    self.movieTrailer = trailer
+                    self.showTrailer()
+                }
+        })
+        
         viewModel.fetchMovie(movieIdentifier: self.movieId)
     }
     
@@ -55,6 +66,24 @@ class MovieDetailViewController: UIViewController {
             movieGenresTitle.text = genresString
             movieDescriptionLabel.text = movie.overview
             movieStarsLabel.text = String(movie.budget)
+        }
+    }
+    
+    func showTrailer() {
+        performSegue(withIdentifier: "trailerSegue", sender: self)
+    }
+    
+    @IBAction func movieTrailerTapped(_ sender: Any) {
+        viewModel.fetchTrailer(movieIdentifier: self.movieId)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "trailerSegue" {
+            if let trailer = movieTrailer {
+                let destination = segue.destination as!
+                TrailerMovieViewController
+                destination.videoKey = trailer.key
+            }
         }
     }
     
