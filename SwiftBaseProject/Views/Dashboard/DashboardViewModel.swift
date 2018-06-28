@@ -14,6 +14,7 @@ class DashboardViewModel {
 
   private var disposeBag = DisposeBag()
   var movies = BehaviorRelay<[Movie]?>(value: nil)
+  var genres = BehaviorRelay<[Genre]?>(value: nil)
   var user = BehaviorRelay<User?>(value: nil)
 
   func fetchMovies() {
@@ -26,4 +27,14 @@ class DashboardViewModel {
         }
     ).disposed(by: disposeBag)
   }
+    
+  func fetchGenres() {
+    let request: Observable<GenresResponse> = MovieServiceManager.shared.request(MovieService.fetchGenres)
+        request.subscribe(
+            onNext: { genresResponse in
+                self.genres.accept(genresResponse.genres)
+        }, onError: { error in
+            print(error.localizedDescription)
+        }).disposed(by: disposeBag)
+    }
 }

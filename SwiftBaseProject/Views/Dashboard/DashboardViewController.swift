@@ -17,19 +17,27 @@ class DiscoverMovieViewCell: UITableViewCell {
   @IBOutlet weak var movieOverview: UILabel!
 }
 
-class DashaboardViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class GenresViewCell: UICollectionViewCell {
+
+    @IBOutlet weak var genreTitLE: UILabel!
+}
+
+class DashaboardViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource {
     
   var viewModel: DashboardViewModel!
   private var disposeBag = DisposeBag()
 
+  @IBOutlet weak var genresCollectionView: UICollectionView!
   @IBOutlet weak var discoverMoviesTableView: UITableView!
   var movies : [Movie]?
-  var moviesAux = [Movie]()
+  var genres : [Genre]?
   var indicator = UIActivityIndicatorView()
     
   override func viewDidLoad() {
     super.viewDidLoad()
     setup()
+    genresCollectionView.delegate = self
+    genresCollectionView.dataSource = self
     discoverMoviesTableView.delegate = self
     discoverMoviesTableView.dataSource = self
   }
@@ -42,6 +50,13 @@ class DashaboardViewController: UIViewController, UITableViewDelegate, UITableVi
             self.discoverMoviesTableView.reloadData()
         }
     )
+    viewModel.genres.asObservable().subscribe(
+        onNext: { genres in
+            self.genres = genres
+            self.genresCollectionView.reloadData()
+        }
+    )
+    viewModel.fetchGenres()
     viewModel.fetchMovies()
   }
     
@@ -67,6 +82,23 @@ class DashaboardViewController: UIViewController, UITableViewDelegate, UITableVi
         cell.moviePoster?.imageFromServerURL(urlString: posterPath)
       }
       return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if let genresList = genres {
+            return genresList.count
+        } else {
+            return 0
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let genreCell = collectionView.dequeueReusableCell(withReuseIdentifier: "genresViewCell", for: indexPath) as! GenresViewCell
+        if let genresList = genres {
+            let cellGenre = genresList[indexPath.row]
+            genreCell.genreTitLE?.text = cellGenre.name
+        }
+        return genreCell
     }
     
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
