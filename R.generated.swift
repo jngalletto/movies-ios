@@ -31,14 +31,21 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 3 images.
+  /// This `R.image` struct is generated, and contains static references to 4 images.
   struct image {
+    /// Image `logout`.
+    static let logout = Rswift.ImageResource(bundle: R.hostingBundle, name: "logout")
     /// Image `movies`.
     static let movies = Rswift.ImageResource(bundle: R.hostingBundle, name: "movies")
     /// Image `profile`.
     static let profile = Rswift.ImageResource(bundle: R.hostingBundle, name: "profile")
     /// Image `settings`.
     static let settings = Rswift.ImageResource(bundle: R.hostingBundle, name: "settings")
+    
+    /// `UIImage(named: "logout", bundle: ..., traitCollection: ...)`
+    static func logout(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.logout, compatibleWith: traitCollection)
+    }
     
     /// `UIImage(named: "movies", bundle: ..., traitCollection: ...)`
     static func movies(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
@@ -63,7 +70,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.reuseIdentifier` struct is generated, and contains static references to 3 reuse identifiers.
+  /// This `R.reuseIdentifier` struct is generated, and contains static references to 4 reuse identifiers.
   struct reuseIdentifier {
     /// Reuse identifier `followingCell`.
     static let followingCell: Rswift.ReuseIdentifier<FollowingCell> = Rswift.ReuseIdentifier(identifier: "followingCell")
@@ -71,6 +78,8 @@ struct R: Rswift.Validatable {
     static let movieCell: Rswift.ReuseIdentifier<DiscoverMovieViewCell> = Rswift.ReuseIdentifier(identifier: "movieCell")
     /// Reuse identifier `movieLikeCell`.
     static let movieLikeCell: Rswift.ReuseIdentifier<MovieLikeCell> = Rswift.ReuseIdentifier(identifier: "movieLikeCell")
+    /// Reuse identifier `settingsOptionCell`.
+    static let settingsOptionCell: Rswift.ReuseIdentifier<SettingsOptionCell> = Rswift.ReuseIdentifier(identifier: "settingsOptionCell")
     
     fileprivate init() {}
   }
