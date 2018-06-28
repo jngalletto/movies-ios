@@ -12,6 +12,7 @@ import RxSwift
 import UIKit
 import AVKit
 import AVFoundation
+import youtube_ios_player_helper
 
 class MovieDetailViewController: UIViewController {
     
@@ -19,7 +20,8 @@ class MovieDetailViewController: UIViewController {
     private var disposeBag = DisposeBag()
     
     @IBOutlet weak var moviePosterImage: UIImageView!
-    @IBOutlet weak var movieBackdropImage: UIImageView!
+    
+    @IBOutlet weak var playerView: YTPlayerView!
     @IBOutlet weak var movieTitleLabel: UILabel!
     @IBOutlet weak var movieGenresTitle: UILabel!
     @IBOutlet weak var movieDescriptionLabel: UILabel!
@@ -46,20 +48,19 @@ class MovieDetailViewController: UIViewController {
         
         viewModel.trailer.asObservable().subscribe(
             onNext: { trailer in
-                if let movieTrailer = trailer {
-                    self.movieTrailer = trailer
-                    self.showTrailer()
-                }
+                self.movieTrailer = trailer
+                self.showTrailer()
         })
         
         viewModel.fetchMovie(movieIdentifier: self.movieId)
+        viewModel.fetchTrailer(movieIdentifier: self.movieId)
     }
     
     func updateData() {
         if let movie = movieResponse {
             let posterPath = "\(Constants.apiImageBaseUrl)/t/p/w500\(movie.posterPath)"
             let backdropPath = "\(Constants.apiImageBaseUrl)/t/p/w500\(movie.backdropPath)"
-            movieBackdropImage.imageFromServerURL(urlString: backdropPath)
+//            movieBackdropImage.imageFromServerURL(urlString: backdropPath)
             moviePosterImage.imageFromServerURL(urlString: posterPath)
             movieTitleLabel.text = movie.title
             let genresString = ""
@@ -70,20 +71,8 @@ class MovieDetailViewController: UIViewController {
     }
     
     func showTrailer() {
-        performSegue(withIdentifier: "trailerSegue", sender: self)
-    }
-    
-    @IBAction func movieTrailerTapped(_ sender: Any) {
-        viewModel.fetchTrailer(movieIdentifier: self.movieId)
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "trailerSegue" {
-            if let trailer = movieTrailer {
-                let destination = segue.destination as!
-                TrailerMovieViewController
-                destination.videoKey = trailer.key
-            }
+        if let trailer = movieTrailer {
+            self.playerView.load(withVideoId: trailer.key)
         }
     }
     

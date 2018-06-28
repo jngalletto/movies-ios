@@ -13,8 +13,8 @@ import UIKit
 
 class DiscoverMovieViewCell: UITableViewCell {
   @IBOutlet weak var moviePoster: UIImageView!
-  @IBOutlet weak var movieTitle: UILabel!
-  @IBOutlet weak var movieOverview: UILabel!
+    @IBOutlet weak var movieName: UILabel!
+    @IBOutlet weak var movieOverview: UILabel!
 }
 
 class GenresViewCell: UICollectionViewCell {
@@ -76,8 +76,7 @@ class DashaboardViewController: UIViewController, UITableViewDelegate, UITableVi
         let title = cellMovie.title
         let overview = cellMovie.overview
         let posterPath = "\(Constants.apiImageBaseUrl)/t/p/w500\(cellMovie.posterPath)"
-            
-        cell.movieTitle?.text = title
+        cell.movieName?.text = title
         cell.movieOverview?.text = overview
         cell.moviePoster?.imageFromServerURL(urlString: posterPath)
       }
