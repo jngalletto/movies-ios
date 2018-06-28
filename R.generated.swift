@@ -63,15 +63,19 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.reuseIdentifier` struct is generated, and contains static references to 1 reuse identifiers.
+  /// This `R.reuseIdentifier` struct is generated, and contains static references to 3 reuse identifiers.
   struct reuseIdentifier {
+    /// Reuse identifier `followingCell`.
+    static let followingCell: Rswift.ReuseIdentifier<FollowingCell> = Rswift.ReuseIdentifier(identifier: "followingCell")
     /// Reuse identifier `movieCell`.
     static let movieCell: Rswift.ReuseIdentifier<DiscoverMovieViewCell> = Rswift.ReuseIdentifier(identifier: "movieCell")
+    /// Reuse identifier `movieLikeCell`.
+    static let movieLikeCell: Rswift.ReuseIdentifier<MovieLikeCell> = Rswift.ReuseIdentifier(identifier: "movieLikeCell")
     
     fileprivate init() {}
   }
   
-  /// This `R.segue` struct is generated, and contains static references to 2 view controllers.
+  /// This `R.segue` struct is generated, and contains static references to 3 view controllers.
   struct segue {
     /// This struct is generated for `DashaboardViewController`, and contains static references to 1 segues.
     struct dashaboardViewController {
@@ -98,6 +102,21 @@ struct R: Rswift.Validatable {
       /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
       static func homeSegue(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, LoginViewController, UIKit.UITabBarController>? {
         return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.loginViewController.homeSegue, segue: segue)
+      }
+      
+      fileprivate init() {}
+    }
+    
+    /// This struct is generated for `ProfileViewController`, and contains static references to 1 segues.
+    struct profileViewController {
+      /// Segue identifier `showMovieSegue`.
+      static let showMovieSegue: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, ProfileViewController, MovieDetailViewController> = Rswift.StoryboardSegueIdentifier(identifier: "showMovieSegue")
+      
+      /// Optionally returns a typed version of segue `showMovieSegue`.
+      /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
+      /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
+      static func showMovieSegue(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, ProfileViewController, MovieDetailViewController>? {
+        return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.profileViewController.showMovieSegue, segue: segue)
       }
       
       fileprivate init() {}

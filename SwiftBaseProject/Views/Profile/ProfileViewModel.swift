@@ -13,30 +13,35 @@ import RxSwift
 class ProfileViewModel {
     
     private var disposeBag = DisposeBag()
-    var userName = BehaviorRelay<String?>(value: nil)
-    var password = BehaviorRelay<String?>(value: nil)
-    var canSubmit = BehaviorRelay<Bool>(value: false)
-    var error = BehaviorRelay<String?>(value: nil)
+    var movies = BehaviorRelay<[Movie]?>(value: nil)
+    var following = BehaviorRelay<[Person]?>(value: nil)
     
-    init(with username: String?) {
-        userName.accept(username)
-        Observable.combineLatest(
-            userName.asObservable(),
-            password.asObservable()
-            ).subscribe(
-                onNext: { [unowned self] (user, pass) in
-                    guard let user = user, let pass = pass else { return }
-                    self.canSubmit.accept(!user.isEmpty && !pass.isEmpty)
-                }
-            ).disposed(by: disposeBag)
+    func fetchTopRatedMovies() {
+        let request: Observable<MoviesResponse> = MovieServiceManager.shared.request(MovieService.fetchTopRated)
+        request.subscribe(
+            onNext: { movies in
+                self.movies.accept(movies.results)
+        }, onError: { error in
+            print(error.localizedDescription)
+        }).disposed(by: disposeBag)
     }
     
-    func logout() {
-        guard let username = userName.value, let password = password.value else { return }
-            UserServiceManager.shared.request(UserService.logout).subscribe(
-                onNext: { (user: User) -> Void in
-                    
-                }
-            )
+    func fetchFollowing() {
+        let request: Observable<ParsonResponse> = MovieServiceManager.shared.request(MovieService.fetchFollowing)
+        request.subscribe(
+            onNext: { perosn in
+                self.following.accept(perosn.results)
+        }, onError: { error in
+            print(error.localizedDescription)
+        }).disposed(by: disposeBag)
     }
+    
+//    func logout() {
+//        guard let username = userName.value, let password = password.value else { return }
+//            UserServiceManager.shared.request(UserService.logout).subscribe(
+//                onNext: { (user: User) -> Void in
+//
+//                }
+//            )
+//    }
 }

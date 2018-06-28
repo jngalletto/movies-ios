@@ -19,7 +19,6 @@ struct MovieResponse : Codable {
     let backdropPath: String
     let budget: Int
     let genres: [Genre]
-    let homepage: String
     let releaseDate: String
     let revenue: Int
     let runtime: Int
