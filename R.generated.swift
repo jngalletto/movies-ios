@@ -31,24 +31,44 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 6 images.
+  /// This `R.image` struct is generated, and contains static references to 11 images.
   struct image {
     /// Image `imdb2`.
     static let imdb2 = Rswift.ImageResource(bundle: R.hostingBundle, name: "imdb2")
+    /// Image `language`.
+    static let language = Rswift.ImageResource(bundle: R.hostingBundle, name: "language")
+    /// Image `logintop`.
+    static let logintop = Rswift.ImageResource(bundle: R.hostingBundle, name: "logintop")
     /// Image `logout`.
     static let logout = Rswift.ImageResource(bundle: R.hostingBundle, name: "logout")
     /// Image `movies`.
     static let movies = Rswift.ImageResource(bundle: R.hostingBundle, name: "movies")
+    /// Image `notifications`.
+    static let notifications = Rswift.ImageResource(bundle: R.hostingBundle, name: "notifications")
     /// Image `play_icon`.
     static let play_icon = Rswift.ImageResource(bundle: R.hostingBundle, name: "play_icon")
+    /// Image `privacy`.
+    static let privacy = Rswift.ImageResource(bundle: R.hostingBundle, name: "privacy")
     /// Image `profile`.
     static let profile = Rswift.ImageResource(bundle: R.hostingBundle, name: "profile")
     /// Image `settings`.
     static let settings = Rswift.ImageResource(bundle: R.hostingBundle, name: "settings")
+    /// Image `terms`.
+    static let terms = Rswift.ImageResource(bundle: R.hostingBundle, name: "terms")
     
     /// `UIImage(named: "imdb2", bundle: ..., traitCollection: ...)`
     static func imdb2(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.imdb2, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "language", bundle: ..., traitCollection: ...)`
+    static func language(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.language, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "logintop", bundle: ..., traitCollection: ...)`
+    static func logintop(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.logintop, compatibleWith: traitCollection)
     }
     
     /// `UIImage(named: "logout", bundle: ..., traitCollection: ...)`
@@ -61,9 +81,19 @@ struct R: Rswift.Validatable {
       return UIKit.UIImage(resource: R.image.movies, compatibleWith: traitCollection)
     }
     
+    /// `UIImage(named: "notifications", bundle: ..., traitCollection: ...)`
+    static func notifications(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.notifications, compatibleWith: traitCollection)
+    }
+    
     /// `UIImage(named: "play_icon", bundle: ..., traitCollection: ...)`
     static func play_icon(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.play_icon, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "privacy", bundle: ..., traitCollection: ...)`
+    static func privacy(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.privacy, compatibleWith: traitCollection)
     }
     
     /// `UIImage(named: "profile", bundle: ..., traitCollection: ...)`
@@ -74,6 +104,11 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "settings", bundle: ..., traitCollection: ...)`
     static func settings(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.settings, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "terms", bundle: ..., traitCollection: ...)`
+    static func terms(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.terms, compatibleWith: traitCollection)
     }
     
     fileprivate init() {}
@@ -234,6 +269,7 @@ struct _R: Rswift.Validatable {
   
   struct storyboard: Rswift.Validatable {
     static func validate() throws {
+      try main.validate()
       try settings.validate()
       try movieDetail.validate()
       try home.validate()
@@ -278,11 +314,15 @@ struct _R: Rswift.Validatable {
       fileprivate init() {}
     }
     
-    struct main: Rswift.StoryboardResourceWithInitialControllerType {
+    struct main: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
       typealias InitialController = UIKit.UINavigationController
       
       let bundle = R.hostingBundle
       let name = "Main"
+      
+      static func validate() throws {
+        if UIKit.UIImage(named: "logintop") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'logintop' is used in storyboard 'Main', but couldn't be loaded.") }
+      }
       
       fileprivate init() {}
     }

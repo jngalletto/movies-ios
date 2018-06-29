@@ -28,11 +28,11 @@ class SettingsViewController : UIViewController, UITableViewDelegate, UITableVie
     }
     
     func setup() {
-        settings.append(SettingOption(title: "Edit Profile", icon: "logout"))
-        settings.append(SettingOption(title: "Terms and Conditions", icon: "logout"))
-        settings.append(SettingOption(title: "Change Language", icon: "logout"))
-        settings.append(SettingOption(title: "Notifications", icon: "logout"))
-        settings.append(SettingOption(title: "Privacy Policy", icon: "logout"))
+        settings.append(SettingOption(title: "Edit Profile", icon: "profile"))
+        settings.append(SettingOption(title: "Terms and Conditions", icon: "terms"))
+        settings.append(SettingOption(title: "Change Language", icon: "language"))
+        settings.append(SettingOption(title: "Notifications", icon: "notifications"))
+        settings.append(SettingOption(title: "Privacy Policy", icon: "privacy"))
         settings.append(SettingOption(title: "Logout", icon: "logout"))
         self.settingsOptionTableCiew.reloadData()
     }
@@ -50,7 +50,10 @@ class SettingsViewController : UIViewController, UITableViewDelegate, UITableVie
             let icon = cellSetting.icon
             
             cell.optionText?.text = title
+   
             cell.optionIcon?.image = UIImage(named: icon)
+            cell.optionIcon?.image = cell.optionIcon?.image!.withRenderingMode(.alwaysTemplate)
+            cell.optionIcon?.tintColor = Constants.Colors.accentColor
         }
         return cell
     }
