@@ -31,8 +31,10 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 5 images.
+  /// This `R.image` struct is generated, and contains static references to 6 images.
   struct image {
+    /// Image `imdb2`.
+    static let imdb2 = Rswift.ImageResource(bundle: R.hostingBundle, name: "imdb2")
     /// Image `logout`.
     static let logout = Rswift.ImageResource(bundle: R.hostingBundle, name: "logout")
     /// Image `movies`.
@@ -43,6 +45,11 @@ struct R: Rswift.Validatable {
     static let profile = Rswift.ImageResource(bundle: R.hostingBundle, name: "profile")
     /// Image `settings`.
     static let settings = Rswift.ImageResource(bundle: R.hostingBundle, name: "settings")
+    
+    /// `UIImage(named: "imdb2", bundle: ..., traitCollection: ...)`
+    static func imdb2(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.imdb2, compatibleWith: traitCollection)
+    }
     
     /// `UIImage(named: "logout", bundle: ..., traitCollection: ...)`
     static func logout(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
@@ -228,6 +235,7 @@ struct _R: Rswift.Validatable {
   struct storyboard: Rswift.Validatable {
     static func validate() throws {
       try settings.validate()
+      try movieDetail.validate()
       try home.validate()
       try dashboard.validate()
       try profile.validate()
@@ -279,11 +287,15 @@ struct _R: Rswift.Validatable {
       fileprivate init() {}
     }
     
-    struct movieDetail: Rswift.StoryboardResourceWithInitialControllerType {
+    struct movieDetail: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
       typealias InitialController = MovieDetailViewController
       
       let bundle = R.hostingBundle
       let name = "MovieDetail"
+      
+      static func validate() throws {
+        if UIKit.UIImage(named: "imdb2") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'imdb2' is used in storyboard 'MovieDetail', but couldn't be loaded.") }
+      }
       
       fileprivate init() {}
     }

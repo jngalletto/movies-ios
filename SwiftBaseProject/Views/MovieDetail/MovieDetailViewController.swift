@@ -24,8 +24,11 @@ class MovieDetailViewController: UIViewController {
     @IBOutlet weak var playerView: YTPlayerView!
     @IBOutlet weak var movieTitleLabel: UILabel!
     @IBOutlet weak var movieGenresTitle: UILabel!
-    @IBOutlet weak var movieDescriptionLabel: UILabel!
-    @IBOutlet weak var movieStarsLabel: UILabel!
+    @IBOutlet weak var movieRateLabel: UILabel!
+    @IBOutlet weak var movieWriterLabel: UILabel!
+    @IBOutlet weak var movieDirectorLabel: UILabel!
+    
+    @IBOutlet weak var descriptionLabel: UILabel!
     
     var movieId: Int!
     var movieResponse: MovieResponse?
@@ -60,13 +63,23 @@ class MovieDetailViewController: UIViewController {
         if let movie = movieResponse {
             let posterPath = "\(Constants.apiImageBaseUrl)/t/p/w500\(movie.posterPath)"
             let backdropPath = "\(Constants.apiImageBaseUrl)/t/p/w500\(movie.backdropPath)"
-//            movieBackdropImage.imageFromServerURL(urlString: backdropPath)
+
+            
             moviePosterImage.imageFromServerURL(urlString: posterPath)
             movieTitleLabel.text = movie.title
-            let genresString = ""
+            var genresString = ""
+            for genre in movie.genres {
+                if genresString.isEmpty {
+                    genresString = genre.name
+                } else {
+                    genresString += " | \(genre.name)"
+                }
+            }
             movieGenresTitle.text = genresString
-            movieDescriptionLabel.text = movie.overview
-            movieStarsLabel.text = String(movie.budget)
+            movieRateLabel.text = String(movie.voteAverage)
+            movieDirectorLabel.text = movie.releaseDate
+            movieWriterLabel.text = String(movie.revenue)
+            descriptionLabel.text = movie.overview
         }
     }
     

@@ -30,7 +30,9 @@ class MovieDetailViewModel {
         let request: Observable<TrailerResponse> = MovieServiceManager.shared.request(MovieService.fetchTrailer(id: movieIdentifier))
         request.subscribe(
             onNext: { trailerResponse in
-                self.trailer.accept(trailerResponse.results[0])
+                if trailerResponse.results.count > 1 {
+                    self.trailer.accept(trailerResponse.results[0])
+                }
         }, onError: { error in
             print(error.localizedDescription)
         }).disposed(by: disposeBag)
