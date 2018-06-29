@@ -23,6 +23,7 @@ PODS:
   - RxSwift (4.1.2)
   - SwiftLint (0.25.0)
   - Whisper (6.0.2)
+  - youtube-ios-player-helper (0.1.6)
 
 DEPENDENCIES:
   - Alamofire (~> 4.7)
@@ -34,6 +35,7 @@ DEPENDENCIES:
   - RxSwift (~> 4.1.2)
   - SwiftLint (~> 0.25.0)
   - Whisper (~> 6.0.2)
+  - youtube-ios-player-helper (~> 0.1.1)
 
 SPEC CHECKSUMS:
   Alamofire: 907e0a98eb68cdb7f9d1f541a563d6ac5dc77b25
@@ -48,7 +50,8 @@ SPEC CHECKSUMS:
   RxSwift: e49536837d9901277638493ea537394d4b55f570
   SwiftLint: e14651157288e9e01d6e1a71db7014fb5744a8ea
   Whisper: 169760fc4bab0abf24d5529f9276f95c25cf1025
+  youtube-ios-player-helper: 21ab92db027c7ff86cb17a3843a3f6eafc8158d2
 
-PODFILE CHECKSUM: 8ce4ad6ff98ea16b1a5efc14bd5a3f83d42e824e
+PODFILE CHECKSUM: 0e9f2116beaf4207fd1a8893e7d0653edb3c2814
 
 COCOAPODS: 1.4.0

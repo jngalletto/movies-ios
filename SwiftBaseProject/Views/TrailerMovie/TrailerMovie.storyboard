@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="9Ig-WW-kCX">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Trailer Movie View Controller-->
+        <scene sceneID="WlU-cy-mbf">
+            <objects>
+                <viewController id="9Ig-WW-kCX" customClass="TrailerMovieViewController" customModule="MoviesApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ke8-IH-i0F">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gbc-5T-QRE" customClass="YTPlayerView">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="180"/>
+                                <color key="backgroundColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="180" id="C50-pG-Bhu"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="Gbc-5T-QRE" firstAttribute="leading" secondItem="Dfz-Ld-Cmi" secondAttribute="leading" id="AIh-Qz-E5T"/>
+                            <constraint firstItem="Dfz-Ld-Cmi" firstAttribute="trailing" secondItem="Gbc-5T-QRE" secondAttribute="trailing" id="FPX-Nc-H0Q"/>
+                            <constraint firstItem="Gbc-5T-QRE" firstAttribute="top" secondItem="Dfz-Ld-Cmi" secondAttribute="top" id="hkm-qu-oov"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Dfz-Ld-Cmi"/>
+                    </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+                    <connections>
+                        <outlet property="playerView" destination="Gbc-5T-QRE" id="aWb-mv-eIr"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DGk-cg-K8Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6" y="81"/>
+        </scene>
+    </scenes>
+</document>

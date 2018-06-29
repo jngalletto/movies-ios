@@ -7,12 +7,25 @@
 //
 
 import Foundation
+import UIKit
 
 struct Constants {
+    static let api_key = "0ce27b34f3d404a535fff6ebf9460694"
   // Sample env management
   #if STAGING
-    static let apiBaseUrl = URL(string: "https://google.com")!
+    static let apiBaseUrl = URL(string: "https://api.themoviedb.org/3")!
+    static let apiImageBaseUrl = URL(string: "https://image.tmdb.org")!
   #else
-    static let apiBaseUrl = URL(string: "point_to_prod_here")!
+    static let apiBaseUrl = URL(string: "https://api.themoviedb.org/3")!
+    static let apiImageBaseUrl = URL(string: "https://image.tmdb.org")!
   #endif
+    
+    struct Colors {
+        // Global Colors
+        static let tintColor = UIColor(red: 255/255.0, green: 205/255.0, blue: 0/255.0, alpha: 1.0)
+        static let accentColor = UIColor(red: 51/255.0, green: 51/255.0, blue: 56/255.0, alpha: 1.0)
+        static let backgroundColor = UIColor(red: 240/255.0, green: 244/255.0, blue: 244/255.0, alpha: 1.0)
+        static let titleTextColor = UIColor(red: 230/255.0, green: 230/255.0, blue: 230/255.0, alpha: 1.0)
+        static let textColor = UIColor(red: 80/255.0, green: 80/255.0, blue: 84/255.0, alpha: 1.0)
+    }
 }

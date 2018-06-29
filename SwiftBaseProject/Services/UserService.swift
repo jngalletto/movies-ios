@@ -48,4 +48,6 @@ extension UserService: TargetType {
 
 }
 
-class UserServiceManager: BaseManager<UserService> {}
+class UserServiceManager: BaseManager<UserService> {
+    static let shared = UserServiceManager()
+}

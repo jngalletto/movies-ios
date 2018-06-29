@@ -10,6 +10,7 @@ target 'MoviesApp' do
   pod 'RxCocoa',    '~> 4.1.2'
   pod 'Alamofire', '~> 4.7'
   pod 'Moya/RxSwift', '~> 10.0'
+  pod 'youtube-ios-player-helper', '~> 0.1.1'
   # In app notification and other banners
   pod 'Whisper', '~> 6.0.2'
 

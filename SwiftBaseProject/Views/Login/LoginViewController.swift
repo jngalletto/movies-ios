@@ -16,16 +16,23 @@ class LoginViewController: UIViewController {
   @IBOutlet weak var passwordField: UITextField!
   @IBOutlet weak var loginBtn: UIButton!
   @IBOutlet weak var errorLabel: UILabel!
+    
 
   var viewModel: LoginViewModel!
   private var disposeBag = DisposeBag()
+  var loginSuccess = false
 
   override func viewDidLoad() {
     super.viewDidLoad()
     setup()
   }
+    
+  func proceedToHome() {
+     performSegue(withIdentifier: "homeSegue", sender: self)
+  }
 
   func setup() {
+    self.viewModel = LoginViewModel(with: userNameField.text)
     userNameField.text = viewModel.userName.value
     userNameField.rx
       .text
@@ -50,6 +57,14 @@ class LoginViewController: UIViewController {
       }
     ).disposed(by: disposeBag)
 
+    viewModel.loginSuccess.asObservable().subscribe(
+        onNext: { [unowned self] loginSuccess in
+            if (loginSuccess) {
+               self.proceedToHome()
+            }
+        }
+    ).disposed(by: disposeBag)
+    
     loginBtn.addTarget(self, action: #selector(loginTapped), for: .touchUpInside)
   }
 
