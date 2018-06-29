@@ -73,7 +73,7 @@
                         <outlet property="loginBtn" destination="yz4-rN-M3u" id="nUp-w9-klH"/>
                         <outlet property="passwordField" destination="aaF-K7-gYq" id="lOt-t2-rDp"/>
                         <outlet property="userNameField" destination="Jiq-UN-Xl7" id="S8k-4k-4Fv"/>
-                        <segue destination="WWj-vA-3Lv" kind="push" identifier="homeSegue" id="mRP-6Z-YN5"/>
+                        <segue destination="WWj-vA-3Lv" kind="showDetail" identifier="homeSegue" id="mRP-6Z-YN5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -93,11 +93,11 @@
         <!--Navigation Controller-->
         <scene sceneID="8ap-Dx-yNj">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eNC-GI-OHh" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController id="Dce-Xf-LEm" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="XGQ-5c-meM">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.2196078431372549" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="E0A-v3-9Oy">
                         <autoresizingMask key="autoresizingMask"/>
@@ -106,7 +106,6 @@
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="AkN-mz-mWB"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="eNC-GI-OHh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1351" y="109"/>
         </scene>

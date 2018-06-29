@@ -135,7 +135,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.segue` struct is generated, and contains static references to 3 view controllers.
+  /// This `R.segue` struct is generated, and contains static references to 4 view controllers.
   struct segue {
     /// This struct is generated for `DashaboardViewController`, and contains static references to 1 segues.
     struct dashaboardViewController {
@@ -155,12 +155,12 @@ struct R: Rswift.Validatable {
     /// This struct is generated for `LoginViewController`, and contains static references to 1 segues.
     struct loginViewController {
       /// Segue identifier `homeSegue`.
-      static let homeSegue: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, LoginViewController, UIKit.UITabBarController> = Rswift.StoryboardSegueIdentifier(identifier: "homeSegue")
+      static let homeSegue: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, LoginViewController, UIKit.UINavigationController> = Rswift.StoryboardSegueIdentifier(identifier: "homeSegue")
       
       /// Optionally returns a typed version of segue `homeSegue`.
       /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
       /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
-      static func homeSegue(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, LoginViewController, UIKit.UITabBarController>? {
+      static func homeSegue(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, LoginViewController, UIKit.UINavigationController>? {
         return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.loginViewController.homeSegue, segue: segue)
       }
       
@@ -177,6 +177,21 @@ struct R: Rswift.Validatable {
       /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
       static func showMovieSegue(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, ProfileViewController, MovieDetailViewController>? {
         return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.profileViewController.showMovieSegue, segue: segue)
+      }
+      
+      fileprivate init() {}
+    }
+    
+    /// This struct is generated for `SettingsViewController`, and contains static references to 1 segues.
+    struct settingsViewController {
+      /// Segue identifier `segueLogout`.
+      static let segueLogout: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, SettingsViewController, UIKit.UINavigationController> = Rswift.StoryboardSegueIdentifier(identifier: "segueLogout")
+      
+      /// Optionally returns a typed version of segue `segueLogout`.
+      /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
+      /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
+      static func segueLogout(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, SettingsViewController, UIKit.UINavigationController>? {
+        return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.settingsViewController.segueLogout, segue: segue)
       }
       
       fileprivate init() {}
@@ -291,7 +306,7 @@ struct _R: Rswift.Validatable {
     }
     
     struct home: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
-      typealias InitialController = UIKit.UITabBarController
+      typealias InitialController = UIKit.UINavigationController
       
       let bundle = R.hostingBundle
       let name = "Home"

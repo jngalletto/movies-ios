@@ -57,4 +57,11 @@ class SettingsViewController : UIViewController, UITableViewDelegate, UITableVie
         }
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let currentCell = tableView.cellForRow(at: indexPath) as! SettingsOptionCell
+        if currentCell.optionText.text == "Logout" {
+            self.performSegue(withIdentifier: "segueLogout", sender: self)
+        }
+    }
 }
